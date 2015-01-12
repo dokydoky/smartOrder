@@ -1,0 +1,56 @@
+<html>
+    <style>
+    h1 { font-size : 50px;
+    font-weight : 900;
+    padding : 20px;
+    color : #8B8989;
+    font-family : '돋움';
+    text-align : center;
+    margin-bottom : 1px;
+    margin : 50 auto; }
+    
+    h2 { font-size : 20px;
+    font-weight : 900;
+    padding : 1px;
+    color : #8B8989;
+    font-family : '돋움';
+    text-align : left;
+    margin-top : 60px;
+    margin-left : 10px;
+    margin : 50 auto;  }
+
+    table.order {width:90%; margin:30 auto; text-align:center; border-collapse:collapse; }
+    .order th, .order td {padding:8px 10px;}
+    .order thead th {background:#9BCD9B; text-align:center; border-right:1px solid #fff;}
+    .order tbody tr:hover {background:#F3F5BB}
+    .order tbody tr.zzak:hover {background:#F3F5BB}
+    .order tbody tr.zzak {background:#F4F4F4;}
+      
+    </style>
+  <h1> 실시간 주문 현황 리스트 </h1>
+  <br/>
+
+  <table class="order">
+    <thead>
+    <tr>
+      <th> 주문번호 </th>
+      <th> 메뉴 </th>
+      <th> 테이블번호 </th>
+      <th> 주문시각 </th>
+      <th> 주문처리여부 </th>
+    </tr>
+  </thead>
+  <tbody>
+  <% for(var i=0; i<results.length; i++){ %>
+    <tr>
+      <td> <%= results[i].no %> </td>
+      <td> <%= results[i].menu %> </td>
+      <td> <%= results[i].tableName %> </td>
+      <td> <%= results[i].time %> </td>
+      <td> <%= results[i].checkVal %> </td>
+    </tr>
+  <% } %>
+  </tbody>
+  </table>
+</body>
+</html>

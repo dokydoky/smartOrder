@@ -1,0 +1,43 @@
+<html>
+<style>
+h1 {font-size : 50px;
+    font-weight : 900;
+    padding : 20px;
+    color : #8B8989;
+    font-family : '돋움';
+    text-align : center;
+    margin-bottom : 1px;
+    margin : 50 auto; }
+
+    table.stat {width:90%; margin:5 auto; text-align:center; border-collapse:collapse; }
+    .stat th, .stat td {padding:8px 10px;}
+    .stat thead th {background:#9BCD9B; text-align:center; border-right:1px solid #fff;}
+    .stat tbody tr:hover {background:#F3F5BB}
+    .stat tbody tr.zzak:hover {background:#F3F5BB}
+    .stat tbody tr.zzak {background:#F4F4F4;}
+</style>
+
+<body>
+  <h1> 메뉴의 주문 횟수 통계 </h1>
+<br/>
+
+<table class="stat">
+  <thead>
+    <tr>
+      <th> 날짜 </th>
+      <th> 메뉴 </th>
+      <th> 갯수 </th>
+    </tr>
+  </thead>
+  <tbody>
+  <% for(var i=0; i<results.length; i++){ %>
+    <tr>
+      <td> <%= results[i].day %> </td>
+      <td> <%= results[i].menu %> </td>
+      <td> <%= results[i].count %> </td>
+    </tr>
+  <% } %>
+  </tbody>
+  </table>
+</body>
+</html>
