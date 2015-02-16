@@ -1,4 +1,3 @@
-
 /**
  * Module dependencies.
  */
@@ -52,29 +51,50 @@ if ('development' == app.get('env')) {
 }
 
 // tablet
+app.get('/menuFinder', routes.menuFinder);
+app.get('/menuFinder/detail', routes.menuDetail);
+app.get('/getBestMenus', routes.getBestMenus);
 app.post('/insertOrder', routes.insertOrder);
-app.post('/completeOrder', routes.completeOrder);
+app.post('/addOrder', routes.addOrder);
+app.post('/finishClean', routes.finishClean);
+//app.post('/completeOrder', routes.completeOrder);
 
-// mobile
-app.get('/checkNewOrder', routes.checkNewOrder);
-app.get('/dailyStat/:startDay/:endDay', routes.dailyStat);
+// mobile(kicken)
+//app.get('/checkNewOrder', routes.checkNewOrder);
+app.get('/getOrderList', routes.getOrderList);
+app.post('/finishCook', routes.finishCook);
+
+// mobile(hall)
+app.get('/getCookedList', routes.getCookedList);
+app.post('/finishServe', routes.finishServe);
+app.get('/tableState', routes.tableState);
 
 // web
 app.get('/', routes.index);
-app.get('/menuList', routes.menuList);
+//app.get('/menuList', routes.menuList);
 app.get('/stat', routes.stat);
+//:category([a-z_A-Z]+)
+app.get('/bestMenuCount/:start/:finish', routes.bestMenuCount);
+app.get('/salesYear/:yy', routes.salesYear);
+app.get('/salesMonth/:yy/:mm', routes.salesMonth);
+app.get('/employStat/:start/:finish', routes.employStat);
 
 // mobile web
-app.get('/m', routes.m);
-app.get('/mMenuFinder', routes.mMenuFinder);
-app.get('/mBusiness', routes.mBusiness);
-app.get('/mGuideWay', routes.mGuideWay);
-app.get('/mCheckTable', routes.mCheckTable);
-app.get('/mBooking', routes.mBooking);
+app.get('/mProject', routes.mProject);			//프로젝트 소개
+app.get('/mMain', routes.mMain);			//메인 페이지
+app.get('/mTest', routes.mTest);			//테스트용
+app.get('/mMenuFinder', routes.mMenuFinder);		//메뉴
+app.get('/mBusiness', routes.mBusiness);		//영업안내
+app.get('/mGuideWayStart', routes.mGuideWayStart);      //길 안내 메인
+app.get('/mGuideWayLocation', routes.mGuideWayLocation);//길 안내 Google Maps
+app.get('/mGuideWay', routes.mGuideWay);		//길 안내
+app.get('/mCheckTable', routes.mCheckTable);		//매장 현황
+app.get('/mBooking', routes.mBooking);			//예약 -보류-
+//app.get('/mMenuFinder/detail', routes.mMenuDetail);
 
-// menu
-app.get('/menuFinder', routes.menuFinder);
-app.get('/menuFinder/detail', routes.menuDetail);
+
+// payment
+app.post('/charge', routes.charge);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
