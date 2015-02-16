@@ -1,0 +1,148 @@
+/* 20141~2015 */
+/* WebMobile CSS*/
+/* 임승한 */
+/* <link rel="stylesheet" href="/stylesheets/yahaProject.css"> */
+	
+	.mMain-Big-title {
+		    border-radius: 5px 5px 5px 5px;
+		    height: 50px;
+		    padding: 0px 0 0 10px;
+		    line-height: 25px;
+		    font-size: 15px;
+		    color: #FFFFFF;
+		    font-weight: bold;
+		    background: #BC2424;
+		}
+	
+	/* Google Map */
+	div#map {
+        width: 100%;
+        height: 400px;
+        border: 4px solid white;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box; 
+      }
+
+	/* mBusinessText */
+	    .mBusinessText {
+	    	font-size: 13px;
+	    }
+		.mBusinessSmallText {
+	    	font-size: 8px;
+	    }
+	    .mBusinessMiddleText {
+	    	font-size: 13px;
+	    	font-weight: bold;
+	    	color: #7d1304;
+	    }
+	    .mBusinessBigText {
+	    	font-size: 16px;
+	    	font-weight: bold;
+	    	color: #7e6151;
+	    }
+	    
+	  /* Panel CSS */
+		.panel-content {
+		    padding: 1em;
+		}
+		 .panel-title {
+		    border-radius: 5px 5px 5px 5px;
+		    height: 30px;
+		    padding: 0px 0 0 10px;
+		    line-height: 30px;
+		    font-size: 15px;
+		    color: #FFFFFF;
+		    background: #BC2424;
+		}	  	
+		/* mCheckTable */
+		.tableNumber {
+		    border-radius: 5px 5px 5px 5px;
+		    height: 30px;
+		    padding: 0px 0 0 10px;
+		    line-height: 25px;
+		    font-size: 15px;
+		    color: #FFFFFF;
+		    font-weight: bold;
+		    background: #353535;
+		}
+	  	/* mMain */
+	  	.mMain-title {
+		    border-radius: 5px 5px 5px 5px;
+		    height: 30px;
+		    padding: 0px 0 0 10px;
+		    line-height: 25px;
+		    font-size: 15px;
+		    color: #FFFFFF;
+		    font-weight: bold;
+		    background: #BC2424;
+		}
+		/* Section */
+		.section-main {
+		  background: white;
+		  padding: 1px 25px;
+		  }
+		.section-title {
+		    background: #E7E7E7;
+		    border: 1px solid #111;
+		    padding: 8px 15px;
+		    font-size: 16px;
+		    color: black;
+		    letter-spacing: 0;
+		    border-radius: 5px 5px 5px 5px;
+		    font-weight: normal;
+		    margin-bottom: 0;
+		    overflow: hidden;
+		}
+		  .section-contents {
+		    background: white;
+		    border: 1px solid #111;
+		    padding: 8px 15px;
+		    font-size: 16px;
+		    color: black;
+		    letter-spacing: 0;
+		    border-radius: 5px 5px 5px 5px ;
+		    font-weight: normal;
+		    margin-bottom: 0;
+		    overflow: hidden;
+		}
+	  /* Slider */
+	    .clip {
+			width: 100%;
+            max-width: 600px;
+            overflow: hidden;
+        }
+        .pan {
+            width: 400%;
+            -o-transition: -o-transform 2s;
+            -moz-transition: -moz-transform 2s;
+            -webkit-transition: -webkit-transform 2s;
+            -webkit-backface-visibility: hidden;
+            -webkit-perspective: 1000;
+        }
+        .pan img {
+            display: block;
+            float: left;
+            width: 25%;
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            -webkit-user-drag: none;
+        }
+
+
+
+
+
+/*?*/
+  /* mm */
+  .MenuTrueSteak .visual img {
+	overflow: hidden;
+	display: block;
+	width: 100%;
+	height: 100%
+  }	
+  .CntLight.pd0 {
+	padding: 0px 0px;
+  }
+
+
+  

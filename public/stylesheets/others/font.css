@@ -1,0 +1,65 @@
+/* Font Setting */
+/* = 나눔고딕 */
+@font-face {
+	font-family: 'ng';
+	font-style: normal;
+	font-weight: bold;
+	src: url(//themes.googleusercontent.com/static/fonts/earlyaccess/nanumgothic/v3/NanumGothic-Regular.eot);
+    src: url(//themes.googleusercontent.com/static/fonts/earlyaccess/nanumgothic/v3/NanumGothic-Regular.eot?#iefix) format('embedded-opentype'),
+       url(//themes.googleusercontent.com/static/fonts/earlyaccess/nanumgothic/v3/NanumGothic-Regular.woff2) format('woff2'),
+       url(//themes.googleusercontent.com/static/fonts/earlyaccess/nanumgothic/v3/NanumGothic-Regular.woff) format('woff'),
+       url(//themes.googleusercontent.com/static/fonts/earlyaccess/nanumgothic/v3/NanumGothic-Regular.ttf) format('truetype');
+}
+/*
+@font-face {
+	font-family: 'ngl';
+	font-style: normal;
+	font-weight: bold;
+	src: url('/font/NanumGothicLight.eot');
+	src: local('☺'),
+		url('/font/NanumGothicLight.woff') format('woff'),
+		url('/font/NanumGothicLight.ttf') format('truetype');
+}
+*/
+@font-face {
+	font-family: 'ngb';
+	font-style: normal;
+	font-weight: bold;
+	src: url(//themes.googleusercontent.com/static/fonts/earlyaccess/nanumgothic/v3/NanumGothic-Bold.eot);
+    src: url(//themes.googleusercontent.com/static/fonts/earlyaccess/nanumgothic/v3/NanumGothic-Bold.eot?#iefix) format('embedded-opentype'),
+       url(//themes.googleusercontent.com/static/fonts/earlyaccess/nanumgothic/v3/NanumGothic-Bold.woff2) format('woff2'),
+       url(//themes.googleusercontent.com/static/fonts/earlyaccess/nanumgothic/v3/NanumGothic-Bold.woff) format('woff'),
+       url(//themes.googleusercontent.com/static/fonts/earlyaccess/nanumgothic/v3/NanumGothic-Bold.ttf) format('truetype');
+}
+/*
+@font-face {
+	font-family: 'ngeb';
+	font-style: normal;
+	font-weight: bold;
+	src: url(//themes.googleusercontent.com/static/fonts/earlyaccess/nanumgothic/v3/NanumGothic-ExtraBold.eot);
+    src: url(//themes.googleusercontent.com/static/fonts/earlyaccess/nanumgothic/v3/NanumGothic-ExtraBold.eot?#iefix) format('embedded-opentype'),
+       url(//themes.googleusercontent.com/static/fonts/earlyaccess/nanumgothic/v3/NanumGothic-ExtraBold.woff2) format('woff2'),
+       url(//themes.googleusercontent.com/static/fonts/earlyaccess/nanumgothic/v3/NanumGothic-ExtraBold.woff) format('woff'),
+       url(//themes.googleusercontent.com/static/fonts/earlyaccess/nanumgothic/v3/NanumGothic-ExtraBold.ttf) format('truetype');
+}
+*/
+
+@font-face {
+	font-family: 'cf100';
+	font-style: normal;
+	font-weight: 100;
+	src: url('/font/Chunkfive.eot');
+	src: local('☺'),
+		url('/font/Chunkfive.woff') format('woff'),
+		url('/font/Chunkfive.otf') format('truetype');
+}
+
+@font-face {
+	font-family: 'cf';
+	font-style: normal;
+	font-weight: bold;
+	src: url('/font/Chunkfive.eot');
+	src: local('☺'),
+		url('/font/Chunkfive.woff') format('woff'),
+		url('/font/Chunkfive.otf') format('truetype');
+}

@@ -1,0 +1,146 @@
+<!doctype html>
+
+<!--
+<%
+    // DB 연동하는 방법
+    i = 0;
+    results.length       // 길이
+    results[i].id,       // menu ID
+    results[i].krName,   // 메뉴 한글이름
+    results[i].enName,   // 메뉴 영어이름
+    results[i].price,    // 가격
+    results[i].picture,  // 사진 URL
+    results[i].compose,  // 음식 재료
+    results[i].category  // 카테고리
+%>
+-->
+
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/stylesheets/yahaProject.css">
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+<script src="/javascripts/jquery-1.11.2.js"></script>
+<script src="/javascripts/jquery.mobile-1.4.5.js"></script>
+</head>
+
+<body>
+	<div data-role="page" id="main" data-theme="a">
+	<!-- Header -->
+	<div data-role="header" data-theme="a" >
+		<a href="#mypanel" class="ui-btn ui-shadow ui-corner-all ui-icon-bars ui-btn-icon-notext ui-btn-a ui-btn-inline"></a>
+		<div align="center"><img src="/images/header.jpg" width="100%" height="40%">
+		</div>
+	</div>
+	<!--End Header  -->
+
+	<!-- Panel Attribute -->
+	<div data-role="panel" data-position="left" data-display="overlay" data-theme="a" id="mypanel">
+	  <a onclick="location.href='http://117.16.231.212:8010/mMain'" class="ui-link"><img src="/images/mMainLogo.jpg" width="100%" height="100">
+	  <h2 class="panel-title" align="center">메뉴 & 영업안내<h2>
+	  <a class="ui-alt-icon ui-btn ui-shadow ui-corner-all ui-icon-grid ui-btn-icon-left" href="http://117.16.231.212:8010/mMenuFinder">메뉴</a>
+	  <a class="ui-alt-icon ui-btn ui-shadow ui-corner-all ui-icon-shop ui-btn-icon-left" href="http://117.16.231.212:8010/mBusiness">영업안내</a>
+	  <h2 class="panel-title" align="center">테이블조회 & 찾아오시는길<h2>
+	  <a class="ui-alt-icon ui-btn ui-shadow ui-corner-all ui-icon-info ui-btn-icon-left" href="http://117.16.231.212:8010/mCheckTable">매장현황</a>
+	  <a class="ui-alt-icon ui-btn ui-shadow ui-corner-all ui-icon-location ui-btn-icon-left" href="http://117.16.231.212:8010/mGuideWayStart">길안내</a>
+	  <h2 class="panel-title" align="center">YAHA Project<h2>
+	  <a class="ui-alt-icon ui-btn ui-shadow ui-corner-all ui-icon-heart ui-btn-icon-left" href="http://117.16.231.212:8010/mProject">About Project</a>
+	</div>
+	<!-- End Panel Attribute -->
+	
+	<!-- Panel Attribute -->
+	<div data-role="panel" data-position="left" data-display="overlay" data-theme="a" id="mypanel">
+	  <a onclick="location.href='http://117.16.231.212:8010/mMain'" class="ui-link"><img src="/images/mMainLogo.jpg" width="100%" height="17%">
+	  <h2 class="panel-title" align="center">메뉴 & 영업안내<h2>
+	  <a class="ui-alt-icon ui-btn ui-shadow ui-corner-all ui-icon-grid ui-btn-icon-left" href="http://117.16.231.212:8010/mMenuFinder">메뉴</a>
+	  <a class="ui-alt-icon ui-btn ui-shadow ui-corner-all ui-icon-shop ui-btn-icon-left" href="http://117.16.231.212:8010/mBusiness">영업안내</a>
+	  <h2 class="panel-title" align="center">테이블조회 & 찾아오시는길<h2>
+	  <a class="ui-alt-icon ui-btn ui-shadow ui-corner-all ui-icon-info ui-btn-icon-left" href="http://117.16.231.212:8010/mCheckTable">매장현황</a>
+	  <a class="ui-alt-icon ui-btn ui-shadow ui-corner-all ui-icon-location ui-btn-icon-left" href="http://117.16.231.212:8010/mGuideWay">길안내</a>
+	  <h2 class="panel-title" align="center">YAHA Project<h2>
+	  <a class="ui-alt-icon ui-btn ui-shadow ui-corner-all ui-icon-heart ui-btn-icon-left" href="#">About Project</a>
+	</div>
+	<!-- End Panel Attribute -->
+
+	<!-- 메뉴 선택 이미지 버튼 -->
+	<div data-role="content">
+                <div class="section-main"><p>
+                        <div class="section-title" align="center">
+				<img src="/images/tableNumberLogo00.png" width="100%" height="20%">
+				<h2 class="mMain-title" align="center">OUTBACK STEAK HOUSE<h2>
+                        	<div class="section-contents" align="center">
+                                <div data-role="content" align="center" class="menuBanner">
+				<!-- GET 메뉴 세부 정보 TEST -->
+				  <a data-role="button" onclick="location.href='/menuFinder/detail?id=1'" class="ui-link">TEST</a>
+				  <div class="result"><div>
+				<script>
+				var jqxhr = $.get( "test.php", function( data ) {
+  $( "body" )
+    .append( "Name: " + data.krName );
+}, "json" ); 
+
+
+  .done(function() {
+    alert( "second success" );
+  })
+  .fail(function() {
+    alert( "error" );
+  })
+  .always(function() {
+    alert( "finished" );
+  });
+ 
+// Perform other work here ...
+ 
+// Set another completion function for the request above
+jqxhr.always(function() {
+  alert( "second finished" );
+});
+				</script>
+				<!-- End GET 메뉴 세부 정보 TEST -->
+
+                                  <a onclick="location.href='/mMenuFinder?category=스테이크'" class="ui-link"><img src="/images/menuSteak.jpg" width="100%" height="10%"></a>
+                                  <a onclick="location.href='/mMenuFinder?category=샐러드'" class="ui-link"><img src="/images/menuSalad.jpg" width="100%" height="10%"></a>
+                                  <a onclick="location.href='/mMenuFinder?category=오지타이저'" class="ui-link"><img src="/images/menuOz.jpg" width="100%" height="10%"></a>
+                                  <a onclick="location.href='/mMenuFinder?category=씨푸드'" class="ui-link"><img src="/images/menuSeefood.jpg" width="100%" height="10%"></a>
+                                  <a onclick="location.href='/mMenuFinder?category=페이버릿'" class="ui-link"><img src="/images/menuFavorite.jpg" width="100%" height="10%"></a>
+                                  <a onclick="location.href='/mMenuFinder?category=파스타'" class="ui-link"><img src="/images/menuPasta.jpg" width="100%" height="10%"></a>
+                                </div>
+                             </div>
+                        </div>
+                </div>
+        </div>
+	<!-- End 메뉴 선택 이미지 버튼 --> 
+
+	<!-- Contetns :: 메뉴 출력 -->
+	<div align="center">
+	 	<div class="section-main"><p>
+		 		<div class="section-title" align="center">
+					 <h2 class="mMain-title" align="center">MENU<h2>
+					 <% for(var i=0; i<results.length; i++){ %>
+					 <p class="mBusinessBigText"><%= results[i].krName %></p>
+					 <p class="mBusinessMiddleText">( <%= results[i].enName %> )</p>
+					 <img src="<%= results[i].picture %>" width="100%" height="30%"/>
+					 <p class="mBusinessText">가격(price) : <%= results[i].price %>원</p>
+					 <p class="mBusinessText">재료(ingredient) : <%= results[i].compose %></p>
+					 <p class="mBusinessText">조리시간(Cooking Time) : <%= results[i].cookTime %>분</p>
+					 <a href="#" role="button" class="btn" data-toggle="modal">Modal</a>
+					 <% } %>
+				 </div>
+		 </div>
+ 	</div>
+ 	<!-- End Contetns -->
+
+	<!-- Modal -->
+
+ 	<!-- End Modal -->
+ 
+	<!-- Footer -->
+	<div data-role="footer" data-theme="a">
+        <h4>&copy; 2015 YAHA Team Project</h4>
+      </div>
+	<!-- End Footer -->
+	</body>
+</html>
+

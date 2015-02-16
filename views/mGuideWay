@@ -1,0 +1,242 @@
+<!doctype html>
+<!--
+<%
+    DB연동방법 : 
+    i = 0;
+    results[i].name,		// 지점명
+    results[i].location,		// 지점 위치
+    results[i].phoneNum		// 지점 전화번호
+    results[i].classify		// 지점 분류
+%>
+-->
+
+<html lang="en">
+<head>
+	  <meta charset="utf-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+	  <link rel="stylesheet" href="/stylesheets/yahaProject.css">
+	  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+	  <script src="/javascripts/jquery-1.11.2.js"></script>
+	  <!-- Google Map Event -->
+	  <script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAJgrkT1ePRP78wOOFm18XArOM_HaElurI&sensor=false">
+    </script>
+    <script type="text/javascript">
+      $(document).on('pageinit', function() {
+        
+        $('div#location').on('pageshow', function () {
+          
+          var myPosition = new google.maps.LatLng(37.489930, 126.723225);
+          
+          var mapOptions = {
+            center: myPosition,
+            zoom: 16,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+          };
+        
+          var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+          
+          var marker = new google.maps.Marker({
+            position : myPosition,
+            map : map
+          });
+
+        });
+        
+      });
+    </script>
+	  <!-- Paga Change Event -->
+	  <script type="text/javascript">    
+		// mobileinit 이벤트가 발생할 경우의 처리
+        $(document).on('mobileinit', function(event) {
+		// 기본 화면 전환이 fade인 것을 slide로 변경합니다.
+          $.extend($.mobile, {
+            defaultPageTransition : "slide",
+          });
+          
+          console.log(event.type);
+        });
+        
+        // 페이지 초기화 이벤트 발생 시
+        $(document).on({
+          pagebeforecreate : function(event) { console.log(event.type);},
+          pagecreate : function(event) { console.log(event.type);},
+          pageinit : function(event) { console.log(event.type);}
+        });
+        
+        // 페이지 변경 이벤트 발생 시
+        $(document).on({
+          pagebeforechange : function(event) { console.log(event.type);},
+          pagechange : function(event) { console.log(event.type);},
+          pagechangefailed : function(event) { console.log(event.type);},
+        });
+        
+        // 페이지 전환 이벤트 발생 시
+        $(document).on({
+          pagebeforeshow : function(event) { console.log(event.type);},
+          pageshow : function(event) { console.log(event.type);},
+          pagebeforehide : function(event) { console.log(event.type);},
+          pagehide : function(event) { console.log(event.type);}
+        });        
+    
+        // 페이지 로드 이벤트 발생 시
+        $(document).on({
+          pagebeforeload : function(event) { console.log(event.type);},
+          pageload : function(event) { console.log(event.type);},
+          pageloadfailed : function(event) { console.log(event.type);}
+        }); 
+   	  </script>
+	  <script src="/javascripts/jquery.mobile-1.4.5.js"></script>
+</head>
+
+<body>
+<div data-role="page" id="first" data-theme="a">
+	<!-- Header -->
+	<div data-role="header" data-position="fixed" data-theme="a" >
+		<a href="#mypanel" class="ui-btn ui-shadow ui-corner-all ui-icon-bars ui-btn-icon-notext ui-btn-a ui-btn-inline"></a>
+		<div align="center"><img src="/images/header.jpg" width="100%" height="40%">
+		</div>
+	</div>
+	<!--End Header  -->
+
+	<!-- Panel Attribute -->
+	<div data-role="panel" data-position="left" data-display="overlay" data-theme="a" id="mypanel">
+	  <a onclick="location.href='http://117.16.231.212:8010/mMain'" class="ui-link"><img src="/images/mMainLogo.jpg" width="100%" height="100">
+	  <h2 class="panel-title" align="center">메뉴 & 영업안내<h2>
+	  <a class="ui-alt-icon ui-btn ui-shadow ui-corner-all ui-icon-grid ui-btn-icon-left" href="http://117.16.231.212:8010/mMenuFinder">메뉴</a>
+	  <a class="ui-alt-icon ui-btn ui-shadow ui-corner-all ui-icon-shop ui-btn-icon-left" href="http://117.16.231.212:8010/mBusiness">영업안내</a>
+	  <h2 class="panel-title" align="center">테이블조회 & 찾아오시는길<h2>
+	  <a class="ui-alt-icon ui-btn ui-shadow ui-corner-all ui-icon-info ui-btn-icon-left" href="http://117.16.231.212:8010/mCheckTable">매장현황</a>
+	  <a class="ui-alt-icon ui-btn ui-shadow ui-corner-all ui-icon-location ui-btn-icon-left" href="http://117.16.231.212:8010/mGuideWayStart">길안내</a>
+	  <h2 class="panel-title" align="center">YAHA Project<h2>
+	  <a class="ui-alt-icon ui-btn ui-shadow ui-corner-all ui-icon-heart ui-btn-icon-left" href="http://117.16.231.212:8010/mProject">About Project</a>
+	</div>
+	<!-- End Panel Attribute -->
+
+      <div data-role="content">
+	<div class="section-main"><p>
+			<div class="section-title" align="center">
+			<div class="section-contents" align="center">
+			<img src="/images/tableNumberLogo00.png" width="100%" height="20%">
+          <a href="#second" data-role="button" data-icon="grid" data-iconpos="top">지역별 매장 검색</a>
+          <a href="#location" data-role="button" data-icon="location" data-iconpos="top">지도 매장 검색</a>     
+		</div>
+		</div>
+        </div>
+      </div>
+
+	<!-- Footer -->
+	<div data-role="footer" data-theme="a" data-position="fixed">
+        <h4>&copy; 2015 YAHA Team Project</h4>
+      </div>
+	<!-- End Footer -->
+    </div>
+
+	<!-- ===== Second Page ===== -->
+	<div data-role="page" id="second" data-theme="a">
+	<!-- Header -->
+	<div data-role="header" data-position="fixed" data-theme="a" >
+		<a href="#mypanel" class="ui-btn ui-shadow ui-corner-all ui-icon-bars ui-btn-icon-notext ui-btn-a ui-btn-inline"></a>
+		<div align="center"><img src="/images/header.jpg" width="100%" height="40%">
+		</div>
+	</div>
+	<!--End Header  -->
+
+	<!-- Panel Attribute -->
+	<div data-role="panel" data-position="left" data-display="overlay" data-theme="a" id="mypanel">
+	  <a onclick="location.href='http://117.16.231.212:8010/mMain'" class="ui-link"><img src="/images/mMainLogo.jpg" width="100%" height="100">
+	  <h2 class="panel-title" align="center">메뉴 & 영업안내<h2>
+	  <a class="ui-alt-icon ui-btn ui-shadow ui-corner-all ui-icon-grid ui-btn-icon-left" href="http://117.16.231.212:8010/mMenuFinder">메뉴</a>
+	  <a class="ui-alt-icon ui-btn ui-shadow ui-corner-all ui-icon-shop ui-btn-icon-left" href="http://117.16.231.212:8010/mBusiness">영업안내</a>
+	  <h2 class="panel-title" align="center">테이블조회 & 찾아오시는길<h2>
+	  <a class="ui-alt-icon ui-btn ui-shadow ui-corner-all ui-icon-info ui-btn-icon-left" href="http://117.16.231.212:8010/mCheckTable">매장현황</a>
+	  <a class="ui-alt-icon ui-btn ui-shadow ui-corner-all ui-icon-location ui-btn-icon-left" href="http://117.16.231.212:8010/mGuideWay">길안내</a>
+	  <h2 class="panel-title" align="center">YAHA Project<h2>
+	  <a class="ui-alt-icon ui-btn ui-shadow ui-corner-all ui-icon-heart ui-btn-icon-left" href="#">About Project</a>
+	</div>
+	<!-- End Panel Attribute -->
+
+      <div data-role="content">
+	<div class="section-main"><p>
+		<div class="section-title" align="center">
+			<img src="/images/tableNumberLogo00.png" width="100%" height="20%">
+				<h2 class="mMain-title" align="center">지역별 매장 검색<h2>
+			<!-- 지역별 매장 선택 메뉴 -->
+			<div data-role="navbar" class="ui-navbar" role="navigation">
+				<ul class="ui-grid-b">
+					 <li class="ui-block-a"><a href="/mGuideWay#second" class="ui-link ui-btn ui-icon-grid ui-btn-icon-top">전체</a></li>
+					 <li class="ui-block-b"><a href="/mGuideWay?classify=incheon" class="ui-link ui-btn ui-icon-home ui-btn-icon-top">인천</a></li>
+					 <li class="ui-block-c"><a href="/mGuideWay?classify=gungi" class="ui-link ui-btn ui-icon-home ui-btn-icon-top">경기</a></li>
+					 <li class="ui-block-d"><a href="/mGuideWay?classify=seoul" class="ui-link ui-btn ui-icon-home ui-btn-icon-top">서울</a></li>
+				</ul>
+			</div><p></p>
+
+			<div class="section-contents" align="center">
+			<% for(var i=0; i<results.length; i++){ %>
+			<a href="#" class="ui-btn ui-icon-location ui-btn-icon-top">
+			<p class="mBusinessMiddleText"><%= results[i].name %></p>
+			<p class="mBusinessSmallText"><%= results[i].location %><br/></p>
+			<p class="mBusinessText"><%= results[i].phoneNum %></p></a>
+			<% } %>
+			</div>
+		</div>
+        </div>
+      </div>
+
+	<!-- Footer -->
+	<div data-role="footer" data-theme="a" data-position="fixed">
+        <h4>&copy; 2015 YAHA Team Project</h4>
+      </div>
+	<!-- End Footer -->
+    </div>
+
+	<!-- ===== Location Page ===== -->
+	<div data-role="page" id="location" data-theme="a">
+	<!-- Header -->
+	<div data-role="header" data-position="fixed" data-theme="a" >
+		<a href="#mypanel" class="ui-btn ui-shadow ui-corner-all ui-icon-bars ui-btn-icon-notext ui-btn-a ui-btn-inline"></a>
+		<div align="center"><img src="/images/header.jpg" width="100%" height="40%">
+		</div>
+	</div>
+	<!--End Header  -->
+
+	<!-- Panel Attribute -->
+	<div data-role="panel" data-position="left" data-display="overlay" data-theme="a" id="mypanel">
+	  <a onclick="location.href='http://117.16.231.212:8010/mMain'" class="ui-link"><img src="/images/mMainLogo.jpg" width="100%" height="100">
+	  <h2 class="panel-title" align="center">메뉴 & 영업안내<h2>
+	  <a class="ui-alt-icon ui-btn ui-shadow ui-corner-all ui-icon-grid ui-btn-icon-left" href="http://117.16.231.212:8010/mMenuFinder">메뉴</a>
+	  <a class="ui-alt-icon ui-btn ui-shadow ui-corner-all ui-icon-shop ui-btn-icon-left" href="http://117.16.231.212:8010/mBusiness">영업안내</a>
+	  <h2 class="panel-title" align="center">테이블조회 & 찾아오시는길<h2>
+	  <a class="ui-alt-icon ui-btn ui-shadow ui-corner-all ui-icon-info ui-btn-icon-left" href="http://117.16.231.212:8010/mCheckTable">매장현황</a>
+	  <a class="ui-alt-icon ui-btn ui-shadow ui-corner-all ui-icon-location ui-btn-icon-left" href="http://117.16.231.212:8010/mGuideWay">길안내</a>
+	  <h2 class="panel-title" align="center">YAHA Project<h2>
+	  <a class="ui-alt-icon ui-btn ui-shadow ui-corner-all ui-icon-heart ui-btn-icon-left" href="#">About Project</a>
+	</div>
+	<!-- End Panel Attribute -->
+
+      <div data-role="content">
+	<div class="section-main"><p>
+		<div class="section-title" align="center">
+			<img src="/images/tableNumberLogo00.png" width="100%" height="20%">
+				<h2 class="mMain-title" align="center">지도 매장 검색<h2>
+			<!-- Google Map  -->
+			<div class="section-contents" align="center">
+				<div id="map"></div>	
+			</div>
+		</div>
+        </div>
+      </div>
+
+	<!-- Footer -->
+	<div data-role="footer" data-theme="a" data-position="fixed">
+        <h4>&copy; 2015 YAHA Team Project</h4>
+      </div>
+	<!-- End Footer -->
+    </div>
+</body>
+</html>
+
+
+
+
+

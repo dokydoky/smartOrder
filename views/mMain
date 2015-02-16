@@ -1,0 +1,118 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+	  <meta charset="utf-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+	  <link rel="stylesheet" href="/stylesheets/yahaProject.css">
+	  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+	  <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+	  <link rel="stylesheet" href="/stylesheets/bootstrap-responsive.css">
+
+
+	  <script src="/javascripts/jquery-1.11.2.js"></script>
+	  <script>
+        var position = 0;
+        
+        function next() {
+            position -= 25;
+            if (position <= -100)
+                position = 0;
+            update();
+        }
+
+        function prev() {
+            position += 25;
+            if (position > 0)
+                position = 0;
+            update();
+        }
+
+        function update() {
+            var pan = document.getElementById("pan");
+            pan.style.OTransform = "translateX(" + position + "%)";
+            pan.style.MozTransform = "translateX(" + position + "%)";
+            pan.style.WebkitTransform = "translateX(" + position + "%)";
+        }
+
+		// .bind( '이벤트명', 이벤트 처리기 함수 )
+        $(function() {
+            $(window).bind("swipeleft", next);
+            $(window).bind("swiperight", prev);
+            $(window).bind("keydown", function(event) {
+                if (event.which==37)
+                    prev();
+                else if (event.which==39)
+                    next();
+            });
+            $("img").bind("dragstart", function(ev) { ev.preventDefault(); });
+        });
+    </script>
+	  <script src="/javascripts/jquery.mobile-1.4.5.js"></script>
+	  <script src="/javascripts/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+<div data-role="page" id="main" data-theme="a">
+	<!-- Header -->
+	<div data-role="header" data-theme="a" >
+		<a href="#mypanel" class="ui-btn ui-shadow ui-corner-all ui-icon-bars ui-btn-icon-notext ui-btn-a ui-btn-inline"></a>
+		<div align="center"><img src="/images/header.jpg" width="100%" height="40%">
+		</div>
+	</div>
+	<!--End Header  -->
+
+	<!-- Panel Attribute -->
+	<div data-role="panel" data-position="left" data-display="overlay" data-theme="a" id="mypanel">
+	  <a onclick="location.href='http://117.16.231.212:8010/mMain'" class="ui-link"><img src="/images/mMainLogo.jpg" width="100%" height="17%">
+	  <h2 class="panel-title" align="center">메뉴 & 영업안내<h2>
+	  <a class="ui-alt-icon ui-btn ui-shadow ui-corner-all ui-icon-grid ui-btn-icon-left" href="http://117.16.231.212:8010/mMenuFinder">메뉴</a>
+	  <a class="ui-alt-icon ui-btn ui-shadow ui-corner-all ui-icon-shop ui-btn-icon-left" href="http://117.16.231.212:8010/mBusiness">영업안내</a>
+	  <h2 class="panel-title" align="center">테이블조회 & 찾아오시는길<h2>
+	  <a class="ui-alt-icon ui-btn ui-shadow ui-corner-all ui-icon-info ui-btn-icon-left" href="http://117.16.231.212:8010/mCheckTable">매장현황</a>
+	  <a class="ui-alt-icon ui-btn ui-shadow ui-corner-all ui-icon-location ui-btn-icon-left" href="http://117.16.231.212:8010/mGuideWayStart">길안내</a>
+	  <h2 class="panel-title" align="center">YAHA Project<h2>
+	  <a class="ui-alt-icon ui-btn ui-shadow ui-corner-all ui-icon-heart ui-btn-icon-left" href="http://117.16.231.212:8010/mProject">About Project</a>
+	</div>
+	<!-- End Panel Attribute -->
+
+	<!-- Contetns -->
+	<div data-role="content">
+		<div class="section-main"><p>
+	 		<div class="section-title" align="center">
+	 			<div class="section-contents" align="center">
+	 				<img src="/images/eventLogo.jpg" width="80%" height="100" />
+	 				<h2 class="mMain-title" align="center"> NEW MENU <h2>
+	 				<div class="section-contents" align="center">
+			            <div class="clip">
+			                <div id="pan" class="pan">
+			                    <img src="/images/menu/steak/grid_20130523122731.png" height="200" />
+			                    <img src="/images/menu/seafood/grid_20130522183050.png" height="200" />
+			                    <img src="/images/menu/favorites/grid_20140701174106.png" height="200" />
+			                    <img src="/images/menu/pasta/grid_20130523141209.png" height="200" />
+			                </div>
+			            </div>
+					</div>
+					<h2 class="mMain-title" align="center"> EVENTS <h2>
+					<div class="section-contents" align="center">
+						<img src="/images/event01.jpg" width="100%" height="100%" />
+					</div>
+		        </div>
+ 			</div>
+ 		</div>
+ 
+ 	<!-- End Contetns -->
+
+	<!-- Footer -->
+	<div data-role="footer" data-theme="a">
+        <h4>&copy; 2015 YAHA Team Project</h4>
+      </div>
+	<!-- End Footer -->
+	
+	</body>
+</html>
+
+
+
+

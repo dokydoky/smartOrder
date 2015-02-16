@@ -1,371 +1,122 @@
-<!DOCTYPE html>
-<html lang="en"><head>
-    <meta charset="utf-8">
-    <title>Carousel Template · Bootstrap</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
+<!doctype html>
 
-    <!-- Le styles -->
-    <link href="/stylesheets/bootstrap.css" rel="stylesheet">
-    <link href="/stylesheets/bootstrap-responsive.css" rel="stylesheet">
-    <style>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="/stylesheets/yahaProject.css">
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+	<link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+	<script src="/javascripts/jquery-1.11.2.js"></script>
+	<script src="/javascripts/jquery.mobile-1.4.5.js"></script>	
+	<script src="/javascripts/bootstrap.min.js"></script>
+</head>
 
-    /* GLOBAL STYLES
-    -------------------------------------------------- */
-    /* Padding below the footer and lighter body text */
+<body>
+	<div data-role="page" id="main" data-theme="a">
+		<!-- Header -->
+		<div data-role="header" data-theme="a" >
+			<a href="#mypanel" class="ui-btn ui-shadow ui-corner-all ui-icon-bars ui-btn-icon-notext ui-btn-a ui-btn-inline"></a>
+			<div align="center"><img src="/images/header.jpg" width="100%" height="40%">
+			</div>
+		</div>
+		<!--End Header  -->
 
-    body {
-      padding-bottom: 40px;
-      color: #5a5a5a;
-    }
+		<!-- Panel Attribute -->
+        <div data-role="panel" data-position="left" data-display="overlay" data-theme="a" id="mypanel">
+        	<a onclick="location.href='http://117.16.231.212:8010/mMain'" class="ui-link"><img src="/images/mMainLogo.jpg" width="100%"></a>
+        	<h2 class="panel-title" align="center">메뉴 & 영업안내<h2>
+        	<a class="ui-alt-icon ui-btn ui-shadow ui-corner-all ui-icon-grid ui-btn-icon-left" href="http://117.16.231.212:8010/mMenuFinder">메뉴</a>
+          	<a class="ui-alt-icon ui-btn ui-shadow ui-corner-all ui-icon-shop ui-btn-icon-left" href="http://117.16.231.212:8010/mBusiness">영업안내</a>
+          	<h2 class="panel-title" align="center">테이블조회 & 찾아오시는길<h2>
+          	<a class="ui-alt-icon ui-btn ui-shadow ui-corner-all ui-icon-info ui-btn-icon-left" href="http://117.16.231.212:8010/mCheckTable">매장현황</a>
+          	<a class="ui-alt-icon ui-btn ui-shadow ui-corner-all ui-icon-location ui-btn-icon-left" href="http://117.16.231.212:8010/mGuideWayStart">길안내</a>
+          	<h2 class="panel-title" align="center">YAHA Project<h2>
+          	<a class="ui-alt-icon ui-btn ui-shadow ui-corner-all ui-icon-heart ui-btn-icon-left" href="http://117.16.231.212:8010/mProject">About Project</a>
+          	<div class="section-contents" align="center">
+          		<a onclick="location.href='http://117.16.231.212:8010/mMain'" class="ui-link"><img src="/images/incheonUni.jpg" width="100%"></a>
+          	</div>
+		</div>
+        <!-- End Panel Attribute -->
 
+		<!-- Contetns -->
+		<div data-role="content">
+			<div data-role="collapsibleset">
+	      		<div data-role="collapsible" data-collapsed="false">
+	        		<h3>Outback</h3>
+	        		<img src="/images/mBusiness01.png" width="100%" height="30%" />
+	        		<p class="mBusinessText">
+			        	아웃백은 스테이크하우스입니다<br/>
+			        	정통의 맛과 조리법, 신선한 재료로 정성껏 준비한 메뉴를 <br/>
+			        	가족, 친구와 함께 나누는 공간입니다<br/>
+			        	눈에 보이는 것을 쫓지 않고 투박하게<br/> 
+			        	쉬운 길로 가지 않고 정직하게 True Taste를 찾겠습니다
+			        </p>
+			        <p class="mBusinessBigText">아웃백은 True를 추구하는 스테이크하우스입니다</p>
+			        <img src="/images/mBusiness02.png" width="100%" height="30%" />
+			        <p class="mBusinessText">
+			        	최상의 맛을 위한 기다림<br/>
+						아웃백의 HOMEMADE는 기다림부터 시작됩니다.<br/>
+						최소 3주 이상 숙성을 기다리는 스테이크부터<br/>
+						6시간 이상 끓여내는 수프,<br/>
+						신선한 생과일을 매일 아침 직접 짜내어 제공하는 주스까지!
+			        </p>
+			        <p class="mBusinessBigText">아웃백은 True를 추구하는 스테이크하우스입니다</p>
+	      		</div>
+		      	<div data-role="collapsible">
+		        	<h3>사회공헌 활동</h3>
+		        	<img src="/images/mBusiness03.png" width="100%" height="30%" />
+		        	<p class="mBusinessMiddleText">
+			        	아웃백의 러브백 장학금이 학생들의 등록금 부담을 줄이고,<br/> 
+			        	꿈을 이루는데 보탬이 되었으면 합니다.</p>
+		        	<p class="mBusinessText">
+			        	아웃백은 2013년 3월 사회복지 공동 모금회 사랑의 열매와<br/>
+			        	함께 공익 연계 마케팅 업무 협약을 맺고,<br/>
+			        	러브백 봄 한정 메뉴를 출시했습니다
+		        	</p>
+			        <img src="/images/mBusiness04.png" width="100%" height="30%" />
+			        <p class="mBusinessMiddleText">
+			        	아웃백 고객과 함께 즐기고 나눌 수 있는<br/>
+			        	따뜻한 송년파티로 행복을 느낍니다.
+			        </p>
+			        <p class="mBusinessText">
+			        	아웃백 스테이크하우스는 2011년 12월 <br/>
+			        	아웃백 페이스북과 홈페이지를 통해 2012명의 고객을 초청하여<br/>
+						송년파티 이벤트를 진행하였습니다.
+			        </p>
+			        <img src="/images/mBusiness05.png" width="100%" height="30%" />
+			        <p class="mBusinessMiddleText">
+			        	아웃백은 우리 주변의 결식,<br/>
+			        	소외 아동들에게 지속적인 사랑을 전달합니다.</p>
+			        <p class="mBusinessText">
+			        	아웃백 스테이크하우스는 아동들의 균형 있는 성장을 위해<br/>
+			        	설치된 한국지역아동센터연합회를 통하여<br/>
+						지역의 아동들에게 지속적으로 사랑을 전달합니다.
+			        </p>
+				</div>
+		      	<div data-role="collapsible">
+			        <h3>True Steak</h3>
+			        <img src="/images/img_myobs_01.jpg" width="100%" height="20%" />
+			        <img src="/images/img_myobs_02.jpg" width="100%" height="80%" />
+			        <img src="/images/img_myobs_03.jpg" width="100%" height="80%" />
+			        <img src="/images/img_myobs_04.jpg" width="100%" height="80%" />
+			        <img src="/images/img_myobs_05.jpg" width="100%" height="80%" />
+			        <img src="/images/img_myobs_06.jpg" width="100%" height="80%" />
+				</div>
+			</div>
+		</div>
+ 		<!-- End Contetns -->
 
-
-    /* CUSTOMIZE THE NAVBAR
-    -------------------------------------------------- */
-
-    /* Special class on .container surrounding .navbar, used for positioning it into place. */
-    .navbar-wrapper {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 10;
-      margin-top: 20px;
-      margin-bottom: -90px; /* Negative margin to pull up carousel. 90px is roughly margins and height of navbar. */
-    }
-    .navbar-wrapper .navbar {
-
-    }
-
-    /* Remove border and change up box shadow for more contrast */
-    .navbar .navbar-inner {
-      border: 0;
-      -webkit-box-shadow: 0 2px 10px rgba(0,0,0,.25);
-         -moz-box-shadow: 0 2px 10px rgba(0,0,0,.25);
-              box-shadow: 0 2px 10px rgba(0,0,0,.25);
-    }
-
-    /* Downsize the brand/project name a bit */
-    .navbar .brand {
-      padding: 14px 20px 16px; /* Increase vertical padding to match navbar links */
-      font-size: 16px;
-      font-weight: bold;
-      text-shadow: 0 -1px 0 rgba(0,0,0,.5);
-    }
-
-    /* Navbar links: increase padding for taller navbar */
-    .navbar .nav > li > a {
-      padding: 15px 20px;
-    }
-
-    /* Offset the responsive button for proper vertical alignment */
-    .navbar .btn-navbar {
-      margin-top: 10px;
-    }
-
-
-
-    /* CUSTOMIZE THE CAROUSEL
-    -------------------------------------------------- */
-
-    /* Carousel base class */
-    .carousel {
-      margin-bottom: 60px;
-    }
-
-    .carousel .container {
-      position: relative;
-      z-index: 9;
-    }
-
-    .carousel-control {
-      height: 80px;
-      margin-top: 0;
-      font-size: 120px;
-      text-shadow: 0 1px 1px rgba(0,0,0,.4);
-      background-color: transparent;
-      border: 0;
-      z-index: 10;
-    }
-
-    .carousel .item {
-      height: 500px;
-    }
-    .carousel img {
-      position: absolute;
-      top: 0;
-      left: 0;
-      min-width: 100%;
-      height: 500px;
-    }
-
-    .carousel-caption {
-      background-color: transparent;
-      position: static;
-      max-width: 550px;
-      padding: 0 20px;
-      margin-top: 200px;
-    }
-    .carousel-caption h1,
-    .carousel-caption .lead {
-      margin: 0;
-      line-height: 1.25;
-      color: #fff;
-      text-shadow: 0 1px 1px rgba(0,0,0,.4);
-    }
-    .carousel-caption .btn {
-      margin-top: 10px;
-    }
-
-
-
-    /* MARKETING CONTENT
-    -------------------------------------------------- */
-
-    /* Center align the text within the three columns below the carousel */
-    .marketing .span4 {
-      text-align: center;
-    }
-    .marketing h2 {
-      font-weight: normal;
-    }
-    .marketing .span4 p {
-      margin-left: 10px;
-      margin-right: 10px;
-    }
-
-
-    /* Featurettes
-    ------------------------- */
-
-    .featurette-divider {
-      margin: 80px 0; /* Space out the Bootstrap <hr> more */
-    }
-    .featurette {
-      padding-top: 120px; /* Vertically center images part 1: add padding above and below text. */
-      overflow: hidden; /* Vertically center images part 2: clear their floats. */
-    }
-    .featurette-image {
-      margin-top: -120px; /* Vertically center images part 3: negative margin up the image the same amount of the padding to center it. */
-    }
-
-    /* Give some space on the sides of the floated elements so text doesn't run right into it. */
-    .featurette-image.pull-left {
-      margin-right: 40px;
-    }
-    .featurette-image.pull-right {
-      margin-left: 40px;
-    }
-
-    /* Thin out the marketing headings */
-    .featurette-heading {
-      font-size: 50px;
-      font-weight: 300;
-      line-height: 1;
-      letter-spacing: -1px;
-    }
-
-
-
-    /* RESPONSIVE CSS
-    -------------------------------------------------- */
-
-    @media (max-width: 979px) {
-
-      .container.navbar-wrapper {
-        margin-bottom: 0;
-        width: auto;
-      }
-      .navbar-inner {
-        border-radius: 0;
-        margin: -20px 0;
-      }
-
-      .carousel .item {
-        height: 500px;
-      }
-      .carousel img {
-        width: auto;
-        height: 500px;
-      }
-
-      .featurette {
-        height: auto;
-        padding: 0;
-      }
-      .featurette-image.pull-left,
-      .featurette-image.pull-right {
-        display: block;
-        float: none;
-        max-width: 40%;
-        margin: 0 auto 20px;
-      }
-    }
-
-
-    @media (max-width: 767px) {
-
-      .navbar-inner {
-        margin: -20px;
-      }
-
-      .carousel {
-        margin-left: -20px;
-        margin-right: -20px;
-      }
-      .carousel .container {
-
-      }
-      .carousel .item {
-        height: 300px;
-      }
-      .carousel img {
-        height: 300px;
-      }
-      .carousel-caption {
-        width: 65%;
-        padding: 0 70px;
-        margin-top: 100px;
-      }
-      .carousel-caption h1 {
-        font-size: 30px;
-      }
-      .carousel-caption .lead,
-      .carousel-caption .btn {
-        font-size: 18px;
-      }
-
-      .marketing .span4 + .span4 {
-        margin-top: 40px;
-      }
-
-      .featurette-heading {
-        font-size: 30px;
-      }
-      .featurette .lead {
-        font-size: 18px;
-        line-height: 1.5;
-      }
-
-    }
-    </style>
-
-    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-      <script src="/javascripts/html5shiv.js"></script>
-    <![endif]-->
-
-    <!-- Fav and touch icons -->
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
-      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
-                    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
-                                   <link rel="shortcut icon" href="../assets/ico/favicon.png">
-  <style id="holderjs-style" type="text/css">.holderjs-fluid {font-size:16px;font-weight:bold;text-align:center;font-family:sans-serif;margin:0}</style></head>
-
-  <body>
-
-
-
-    <!-- NAVBAR
-    ================================================== -->
-    <div class="navbar-wrapper">
-      <!-- Wrap the .navbar in .container to center it within the absolutely positioned parent. -->
-      <div class="container">
-
-        <div class="navbar navbar-inverse">
-          <div class="navbar-inner">
-            <!-- Responsive Navbar Part 1: Button for triggering responsive navbar (not covered in tutorial). Include responsive CSS to utilize. -->
-            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a class="brand" href="http://117.16.231.212:8010/m">YAHA Project</a>
-            <!-- Responsive Navbar Part 2: Place all navbar contents you want collapsed withing .navbar-collapse.collapse. -->
-            <div class="nav-collapse collapse">
-              <ul class="nav">
-		<li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">메뉴 <b class="caret"></b></a>
-                  <ul class="dropdown-menu">
-                    <li class="divider"></li>
-                    <li><a href="http://117.16.231.212:8010/mMenuFinder">전체 메뉴</a></li>
-                    <li class="divider"></li>
-                    <li><a href="#">스테이크</a></li>
-                    <li><a href="#">씨푸드</a></li>
-                    <li><a href="#">샐러드</a></li>
-                    <li><a href="#">파스타</a></li>
-                    <li><a href="#">페이버릿</a></li>
-                    <li><a href="#">오지타이저</a></li>
-                  </ul>
-                </li>
-		 <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">영업안내 <b class="caret"></b></a>
-                  <ul class="dropdown-menu">
-                    <li class="divider"></li>
-                    <li><a href="http://117.16.231.212:8010/mBusiness">영업안내</a></li>
-                  </ul>
-                </li>
-		 <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">길안내 <b class="caret"></b></a>
-                  <ul class="dropdown-menu">
-                    <li class="divider"></li>
-                    <li><a href="http://117.16.231.212:8010/mGuideWay">길안내</a></li>
-                  </ul>
-                </li>
-
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">매장 현황 & 예약 <b class="caret"></b></a>
-                  <ul class="dropdown-menu">
-                    <li><a href="http://117.16.231.212:8010/mCheckTable">매장 현황</a></li>
-                    <li class="divider"></li>
-                    <li class="nav-header">[ 예약하기 ]</li>
-                    <li><a href="#">회 원</a></li>
-                    <li><a href="#">비회원</a></li>
-                  </ul>
-                </li>
-              </ul>
-            </div><!--/.nav-collapse -->
-          </div><!-- /.navbar-inner -->
-        </div><!-- /.navbar -->
-	
-	 <div class="item">
-          <img class="img-rounded" src="/images/true_steak.jpg" alt="">
-          <div class="container">
-          </div>
-        </div>
+		<!-- Footer -->
+		<div data-role="footer" data-theme="a">
+			<h4>&copy; 2015 YAHA Team Project</h4>
+		</div>
+		<!-- End Footer -->
+		
+	</body>
+</html>
 
 
 
 
-    <!-- Le javascript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="/javascripts/jquery.js"></script>
-    <script src="/javascripts/bootstrap-transition.js"></script>
-    <script src="/javascripts/bootstrap-alert.js"></script>
-    <script src="/javascripts/bootstrap-modal.js"></script>
-    <script src="/javascripts/bootstrap-dropdown.js"></script>
-    <script src="/javascripts/bootstrap-scrollspy.js"></script>
-    <script src="/javascripts/bootstrap-tab.js"></script>
-    <script src="/javascripts/bootstrap-tooltip.js"></script>
-    <script src="/javascripts/bootstrap-popover.js"></script>
-    <script src="/javascripts/bootstrap-button.js"></script>
-    <script src="/javascripts/bootstrap-collapse.js"></script>
-    <script src="/javascripts/bootstrap-carousel.js"></script>
-    <script src="/javascripts/bootstrap-typeahead.js"></script>
-    <script>
-      !function ($) {
-        $(function(){
-          // carousel demo
-          $('#myCarousel').carousel()
-        })
-      }(window.jQuery)
-    </script>
-    <script src="/javascripts/holder.js"></script>
-  
-
-</body></html>
 

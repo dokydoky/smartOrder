@@ -1,0 +1,111 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="/stylesheets/yahaProject.css">
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+	<link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+	<link rel="stylesheet" href="/stylesheets/bootstrap-responsive.css">
+	<script src="/javascripts/jquery-1.11.2.js"></script>
+	<script src="/javascripts/jquery.mobile-1.4.5.js"></script>
+	<script src="/javascripts/bootstrap.min.js"></script>
+</head>
+<body>
+	<div data-role="page" id="main" data-theme="a">
+	<!-- Header -->
+		<div data-role="header" data-theme="a" >
+			<a href="#mypanel" class="ui-btn ui-shadow ui-corner-all ui-icon-bars ui-btn-icon-notext ui-btn-a ui-btn-inline"></a>
+			<div align="center"><img src="/images/header.jpg" width="100%" height="40%">
+			</div>
+		</div>
+	<!--End Header  -->
+
+	<!-- Panel Attribute -->
+    <div data-role="panel" data-position="left" data-display="overlay" data-theme="a" id="mypanel">
+		<a onclick="location.href='http://117.16.231.212:8010/mMain'" class="ui-link"><img src="/images/mMainLogo.jpg" width="100%"></a>
+        <h2 class="panel-title" align="center">메뉴 & 영업안내<h2>
+        <a class="ui-alt-icon ui-btn ui-shadow ui-corner-all ui-icon-grid ui-btn-icon-left" href="http://117.16.231.212:8010/mMenuFinder">메뉴</a>
+        <a class="ui-alt-icon ui-btn ui-shadow ui-corner-all ui-icon-shop ui-btn-icon-left" href="http://117.16.231.212:8010/mBusiness">영업안내</a>
+        <h2 class="panel-title" align="center">테이블조회 & 찾아오시는길<h2>
+        <a class="ui-alt-icon ui-btn ui-shadow ui-corner-all ui-icon-info ui-btn-icon-left" href="http://117.16.231.212:8010/mCheckTable">매장현황</a>
+        <a class="ui-alt-icon ui-btn ui-shadow ui-corner-all ui-icon-location ui-btn-icon-left" href="http://117.16.231.212:8010/mGuideWayStart">길안내</a>
+        <h2 class="panel-title" align="center">YAHA Project<h2>
+        <a class="ui-alt-icon ui-btn ui-shadow ui-corner-all ui-icon-heart ui-btn-icon-left" href="http://117.16.231.212:8010/mProject">About Project</a>
+        <div class="section-contents" align="center">
+        	<a onclick="location.href='http://117.16.231.212:8010/mMain'" class="ui-link"><img src="/images/incheonUni.jpg" width="100%"></a>
+        </div>
+	</div>
+	<!-- End Panel Attribute -->
+
+	<!-- Contetns -->
+	<div data-role="content">
+		<div data-role="collapsibleset">
+			<div data-role="collapsible" data-collapsed="false">
+	        	<h3>프로젝트</h3>
+	        	<img src="/images/incheonUni.jpg" width="100%" height="30%" />
+				<h2 class="mMain-title" align="center">YAHA Project<h2>
+				<p class="mBusinessText" align="center">Youthful Ardor, Hopeful Advance<br/>( 청춘의 열정, 희망의 전진 )
+				</p>		
+				<p></p>
+				<h2 class="mMain-title" align="center">통합 매장관리 시스템<h2>
+				<p class="mBusinessMiddleText" align="center">
+					( Integrated Store Management System )
+				</p>
+				<h2 class="mMain-title" align="center">시스템 개요<h2>
+				<img src="/images/mProject00.png" width="100%" height="30%" />
+                <p class="mBusinessText" align="center">
+					종업원들의 주문기록 실수, 일시적인 주문데이터의 단점, 사용 가능한 테이블이 없을 시 손님이 기다려야하는 상황 등 현재의 매장 관리 부분의 단점을 개선한 스마트한 시스템
+				</p>
+				<h2 class="mMain-title" align="center">시스템 목표<h2>
+                <img src="/images/mProject02.png" width="100%" height="20%" />
+				<img src="/images/mProject01.png" width="100%" height="30%" />
+			</div>
+		<div data-role="collapsible">
+	    	<h3>Web Server</h3>
+			<img src="/images/mProject04.png" width="100%" height="30%" />
+			<p class="mBusinessBigText" align="center">핵심 기능</p>
+			<p class="mBusinessText" align="center">주문 PUSH 기능<br/>주문 DB화<br/>통계 생성<br/>App&Web 연동</p>
+		</div>
+		<div data-role="collapsible">
+	        <h3>Web Client</h3>
+			<img src="/images/mProject06.png" width="100%" height="30%" />
+			<p class="mBusinessBigText" align="center">핵심 기능</p>
+            <p class="mBusinessText" align="center">메뉴 별 판매 통계 확인<br/>매출 통계 확인<br/>직원 관리<br/>메뉴 수정 기능</p>
+		</div>
+		<div data-role="collapsible">
+        	<h3>Mobile Web App</h3>
+			<img src="/images/mProject07.png" width="100%" height="30%" />
+			<p class="mBusinessBigText" align="center">핵심 기능</p>
+            <p class="mBusinessText" align="center">사용자 매장 테이블 조회 기능<br/>예상 대기시간 확인 기능<br/>외국어 변환 기능</p>
+		</div>
+		<div data-role="collapsible">
+          	<h3>Tablet Application</h3>
+			<img src="/images/mProject03.png" width="100%" height="30%" />
+			<p class="mBusinessBigText" align="center">핵심 기능</p>
+            <p class="mBusinessText" align="center">추천 메뉴 확인<br/>메뉴 별 조리시간 확인<br/>메뉴 설명<br/>외국어 변환<br/>메뉴 주문<br/>테이블 정리 후 기록</p>
+		</div>
+		<div data-role="collapsible">
+          	<h3>Mobile Application</h3>
+			<img src="/images/mProject05.png" width="100%" height="30%" />
+			<p class="mBusinessBigText" align="center">핵심 기능</p>
+            <p class="mBusinessText" align="center">주문 확인 기능<br/>조리 완료 PUSH 알림<br/>서빙할 메뉴 확인<br/>매장 테이블 현황 확인</p>
+		</div>
+	</div>
+ 	<!-- End Contetns -->
+
+	<!-- Footer -->
+	<div data-role="footer" data-theme="a">
+		<h4>&copy; 2015 YAHA Team Project</h4>
+	</div>
+	<!-- End Footer -->
+	
+	</body>
+</html>
+
+
+
+
+
+

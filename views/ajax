@@ -1,0 +1,79 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/stylesheets/yahaProject.css">
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+<script src="/javascripts/jquery-1.11.2.js"></script>
+<script src="/javascripts/jquery.mobile-1.4.5.js"></script>
+</head>
+
+<body>
+<!-- GET 메뉴 세부 정보 TEST -->
+<!--
+<a data-role="button" onclick="location.href='/menuFinder/detail?id=1'">
+TEST
+</a>
+-->
+<a data-role="button" id= "getResult">
+TEST
+</a>
+
+<div class="result01"></div>
+<p></p>
+<div class="result02"></div>
+
+<script>
+$('#getResult').click( function() {
+$.ajax({
+	type : "GET",
+   	url: '/menuFinder/detail?id=1',
+	async: false,
+	dataType:'json',
+	success: response_json
+	});
+	
+	function response_json(json)
+	{
+		//주 메뉴 정보
+		var infomation = json.data;
+		var info_krName = infomation.krName;
+		var info_enName = infomation.enName;
+		var info_cookTime = infomation.cookTime;
+		var info_price = infomation.price;
+		var info_compose = infomation.compose;		
+                var info_detail = infomation.detail;
+                var info_ingre_picture = infomation.ingre_picture;
+                var info_ingre_krName = infomation.ingre_krName;
+                var info_ingre_enName = infomation.ingre_enName;
+		var info_ingre_detail = infomation.ingre_detail;
+		var info_ingre_addTitle = infomation.ingre_addTitle;
+                var info_ingre_addDetail = infomation.ingre_addDetail;
+		
+		var major_information = info_krName+"<br>"+info_enName+"<br>"+info_cookTime+"<br>"+info_price+"<br>"+info_compose+"<br>"+info_detail+"<br>"+info_ingre_picture+"<br>"+info_ingre_krName+"<br>"+info_ingre_enName+"<br>"+info_ingre_detail+"<br>"+info_ingre_addTitle+"<br>"+info_ingre_addDetail;
+
+
+		//부 메뉴 정보
+		var sideMenu_list = infomation.sideMenu;
+		var sideMenu_count  = sideMenu_list.length;
+		var side_information = "";
+		for(var i=0; i<sideMenu_count; i++){
+			side_information += sideMenu_list[i].side_name+"<br>"+sideMenu_list[i].side_picture+"<br>";
+		}
+
+
+		$(".result01").append(major_information);
+                $(".result02").append(side_information);
+
+	}
+
+})
+</script>
+
+
+
+</body>
+</html>
+

@@ -1,0 +1,144 @@
+#dimMask {position:absolute;top:0;left:0;background:#bc9e70;z-index:57}
+
+html.subactive {width:100%;overflow:visible;position:fixed}
+
+#gnb {position: relative;z-index: 80;}
+
+/* (s) 서브메뉴 정의 */
+.onepx {margin:0 auto;width:1px;position:relative;z-index:109;visibility:hidden}
+.onepx.active {visibility:visible}
+.submenu_wrap {position:absolute;height:460px;top:113px;left:-471px}
+.submenu_wrap .item {width:940px;height:460px;text-align:center}
+.submenu_wrap > .subCtrls li a,
+.submenu_wrap > .subCtrls li button {position:absolute;top:120px;display:block;width:82px;height:82px;background:url(/img/common/btn_submenu_pnn.png) no-repeat;cursor:pointer;z-index:90;text-indent:-3721em}
+.submenu_wrap > .subCtrls li > .prev{background-position:0 0;left:-100px}
+.submenu_wrap > .subCtrls li > .next{background-position:-82px 0;right:-100px}
+.submenu_wrap > .subCtrls li > .prev.act{background-position:0 -82px}
+.submenu_wrap > .subCtrls li > .next.act{background-position:-82px -82px}
+.submenu_wrap > .subCtrls li > .prev[disabled=disabled],
+.submenu_wrap > .subCtrls li > .prev[disabled=disabled].act {background-position:0 0 !important}
+.submenu_wrap > .subCtrls li > .prev[disabled=disabled],
+.submenu_wrap > .subCtrls li > .prev[disabled=disabled].act {background-position:-82px 0 !important}
+.submenu_wrap > .subCtrls li button.close {top:0;right:0;width:41px;height:41px;background:url(/img/common/btn_close_d2.png) no-repeat;text-indent:-3721em}
+.submenu_wrap > .subCtrls li a.close {top:0;right:0;width:41px;height:41px;background:url(/img/layout/btn_close_d2.png) no-repeat;text-indent:-3721em}
+
+.submenuScope {width:940px;height:460px;margin:0 auto;overflow:hidden}
+.submenuScope > .slidee  {width:20000px;height:460px;}
+.submenuScope > .slidee > .item {width:940px;height:460px;float:left}
+
+.submenu_wrap > .mpages {position:absolute;top:556px;left:415px;z-index:50}
+.submenu_wrap > .mpages > li{
+	float: left;
+	width: 12px !important;
+	height: 12px !important;
+	margin-right: 14px;
+	padding-top: 10px;
+	background-color:none;
+	border-radius:none;
+}
+.submenu_wrap > .mpages > li > a{display:block;width:100%;height:100%;background:url(/img/main/btn_visual_page_dot.png) no-repeat;text-indent:-3721em}
+.submenu_wrap > .mpages > .active > a {background-position:-12px 0}
+/* (e) 서브메뉴 정의 */
+
+/* 라이브잇임시 */
+#liveitTemp {margin:0 auto;width:1px;height:636px;position:relative}
+#liveitTemp img {width:1600px;position:absolute;top:0;left:-801px}
+
+/* ==============================
+	Global Navigation Bar > Depth2 Definition
+	2013-04-29 Choi Sunki
+	+ Common : 공통
+	- ypos : Y좌표 공통
+	- xpos : X좌표 공통
+	- each : 개별 좌표
+ ==============================*/
+ /* common */
+.submenu_wrap{}
+.submenuScope{width:940px;height:560px;margin:0 auto}
+.submenuScope > .slidee{width:5000px;height:560px}
+.submenuScope > .slidee > .item{float:left;width:940px;height:560px}
+.submenuScope .slidee a{display:block;position:absolute;cursor:pointer}
+.submenuScope .slidee .item ul{position:relative;width:940px;height:560px}
+
+/* = Truesteak
+================== */
+/* + common */
+.submenuScope .truesteak .sub1{position:absolute;}
+.submenuScope .truesteak .sub1,.submenuScope .truesteak .sub2{left:237px}
+.submenuScope .truesteak .sub4,.submenuScope .truesteak .sub5,.submenuScope .truesteak .sub6{left:717px}
+/* - ypos */
+.submenuScope .truesteak .sub0,.submenuScope .truesteak .sub1,.submenuScope .truesteak .sub4{top:53px}
+.submenuScope .truesteak .sub2,.submenuScope .truesteak .sub3{top:299px}
+/* - each */
+.submenuScope .truesteak .sub0{left:73px}
+.submenuScope .truesteak .sub1{}
+.submenuScope .truesteak .sub2{}
+.submenuScope .truesteak .sub3{left:477px}
+.submenuScope .truesteak .sub4{}
+.submenuScope .truesteak .sub5{top:217px}
+.submenuScope .truesteak .sub6{top:381px}
+.submenuScope .truesteak .sub7{left:73px;top:380px}
+.submenuScope .truesteak .sub8{left:717px;top:217px;} /* 2014-07-01 추가 */
+
+/* = Menu
+================== */
+.submenuScope .menu a{top:-3721em}
+/* + common */
+/* - xpos */
+.submenuScope .menu .sub0{position:absolute;}
+.submenuScope .menu .sub0,.submenuScope .menu .sub1,.submenuScope .menu .sub3{left:67px}
+.submenuScope .menu .sub2,.submenuScope .menu .sub4{left:231px}
+.submenuScope .menu .sub5,.submenuScope .menu .sub8,.submenuScope .menu .sub11{left:395px}
+.submenuScope .menu .sub6,.submenuScope .menu .sub9,.submenuScope .menu .sub12{left:559px}
+.submenuScope .menu .sub7,.submenuScope .menu .sub10,.submenuScope .menu .sub13{left:723px}
+/* - ypos */
+.submenuScope .menu .sub1,.submenuScope .menu .sub2{top:202px}
+.submenuScope .menu .sub3,.submenuScope .menu .sub4{top:406px}
+.submenuScope .menu .sub0,.submenuScope .menu .sub5,.submenuScope .menu .sub6,.submenuScope .menu .sub7{top:53px}
+.submenuScope .menu .sub8,.submenuScope .menu .sub9,.submenuScope .menu .sub10{top:217px}
+.submenuScope .menu .sub11,.submenuScope .menu .sub12,.submenuScope .menu .sub13{top:380px}
+/* - each */
+
+/* = store
+================== */
+/* + common */
+/* - xpos */
+/* - ypos */
+.submenuScope .store .sub0,.submenuScope .store .sub1,.submenuScope .store .sub2{top:143px}
+/* - each */
+.submenuScope .store .sub0{left:116px}
+.submenuScope .store .sub1{left:356px}
+.submenuScope .store .sub2{left:597px}
+
+/* = benefit
+================== */
+/* + common */
+/* - xpos */
+.submenuScope .benefit .sub1,.submenuScope .benefit .sub2{left:477px}
+/* - ypos */
+.submenuScope .benefit .sub0,.submenuScope .benefit .sub2{top:53px}
+/* - each */
+.submenuScope .benefit .sub0{left:313px}
+.submenuScope .benefit .sub1{top:299px}
+.submenuScope .benefit .sub2{}
+.submenuScope .benefit .sub3{top:217px;left:237px}
+
+/* = Boomerang
+================== */
+/* + common */
+/* - xpos */
+.submenuScope .boomerang .sub0,.submenuScope .boomerang .sub2{left:231px}
+/* - ypos */
+.submenuScope .boomerang .sub0,.submenuScope .boomerang .sub1{top:53px}
+.submenuScope .boomerang .sub2,.submenuScope .boomerang .sub3,.submenuScope .boomerang .sub4{top:299px}
+/* - each */
+.submenuScope .boomerang .sub1{left:476px}
+.submenuScope .boomerang .sub3{left:395px}
+.submenuScope .boomerang .sub4{left:559px}
+
+/* =  부메랑클럽 컨텐츠 임시 숨기기 */
+/* #food .ctrls,
+#notice .ctrls,
+#notice .page,
+#notice .item2{display:none}  */
+/*#notice .ctrls,#notice .page {display:none}*/
