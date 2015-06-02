@@ -58,6 +58,7 @@ app.post('/insertOrder', routes.insertOrder);
 app.post('/addOrder', routes.addOrder);
 app.post('/finishClean', routes.finishClean);
 //app.post('/completeOrder', routes.completeOrder);
+app.post('/callEmployee', routes.callEmployee);
 
 // mobile(kicken)
 //app.get('/checkNewOrder', routes.checkNewOrder);
@@ -90,15 +91,24 @@ app.get('/mGuideWayLocation', routes.mGuideWayLocation);//길 안내 Google Maps
 app.get('/mGuideWay', routes.mGuideWay);		//길 안내
 app.get('/mCheckTable', routes.mCheckTable);		//매장 현황
 app.get('/mBooking', routes.mBooking);			//예약 -보류-
+app.get('/mAvgStar', routes.mAvgStar);	                //별점 평가
+app.get('/mWebPos', routes.mWebPos);            	//Pos :: 결제 페이지
 //app.get('/mMenuFinder/detail', routes.mMenuDetail);
 
-
 // payment
+app.get('/chargeList/:tableNum', routes.chargeList);
 app.post('/charge', routes.charge);
+
+// like
+app.post('/like', routes.like);
+app.get('/getLikeCnt', routes.getLikeCnt);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });
+
+// menu give Star
+app.post('/putStar', routes.putStar);
 
 
 

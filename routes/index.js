@@ -8,7 +8,9 @@ var server_access_key = 'AIzaSyDha-5O_Di0LdedsVCtu_tEkNqH2sAre6Y';
 var sender = new gcm.Sender(server_access_key);
 var registrationIds = [];
       
-var registration_id = 'APA91bGCykEfZS49Wbu7UAEANAO-POU6eKE4LEAQtZq91ivd0qp1S_d9zPy3B51m1m6JNlxKU9pDT0X4RVDzqMAMg8ZupeqVe41VhZCn_oiNiwY6smIiGFyN-xlILzUxrEs4RttBw9ZlagmBsnPEg2SCC6BdxS1oUQ|';
+//var registration_id = 'APA91bGCykEfZS49Wbu7UAEANAO-POU6eKE4LEAQtZq91ivd0qp1S_d9zPy3B51m1m6JNlxKU9pDT0X4RVDzqMAMg8ZupeqVe41VhZCn_oiNiwY6smIiGFyN-xlILzUxrEs4RttBw9ZlagmBsnPEg2SCC6BdxS1oUQ|';
+var registration_id = 'APA91bFbmc1mG9XVdwmaDypEQhzacJ8Yu45jEr3duvqNdWw2eTt1iaLQTjfraq9kF5OctK7bNHW184Zp-v3UsP_0moCoe6XpaW2cpTvmvgSf7P6W0h8DEDKy79hd_iZ5Bw9ITkELRz-ZsbJeDYsUdZ9O8x5phGKHug';
+
 // At least one required
 registrationIds.push(registration_id);
       
@@ -61,9 +63,22 @@ exports.menuFinder = function(req, res){
   var selectQuery = "";
 
   if(category){
-    selectQuery = "select m.m_id AS id, m.m_name AS krName, m.m_enName AS enName, m_cookTime AS cookTime, m.m_price AS price, m.m_picture AS picture, m.m_compose AS compose, c.c_name AS category from menu m, category c where m.m_catID = c.c_id and c.c_name = '" + category + "'";
+    // selectQuery = "select m.m_id AS id, m.m_name AS krName, m.m_enName AS enName, m_cookTime AS cookTime, m.m_price AS price, m.m_picture AS picture, m.m_compose AS compose, c.c_name AS category from menu m, category c where m.m_catID = c.c_id and c.c_name = '" + category + "'";
+    selectQuery = "SELECT m.m_id AS id, m.m_name AS krName, m.m_enName AS enName, m_cookTime AS cookTime, m.m_price AS price, " + 
+                         "m.m_picture AS picture, m.m_compose AS compose, TRUNCATE(AVG(s.st_cnt),1) AS starAvg, COUNT(s.st_cnt) AS avgCnt, c.c_name AS category " + 
+                  "FROM menu m LEFT OUTER JOIN category c ON m.m_catID = c.c_id " +
+                              "LEFT OUTER JOIN star s ON m.m_id = s.st_menuID " +
+                  "WHERE c.c_name = '" + category + "' " +
+                  "GROUP BY m.m_id " +
+                  "ORDER BY c.c_name;";
   } else{
-    selectQuery = "select m.m_id AS id, m.m_name AS krName, m.m_enName AS enName, m_cookTime AS cookTime, m.m_price AS price, m.m_picture AS picture, m.m_compose AS compose, c.c_name AS category from menu m, category c where m.m_catID = c.c_id ORDER BY c.c_name";
+    // selectQuery = "select m.m_id AS id, m.m_name AS krName, m.m_enName AS enName, m_cookTime AS cookTime, m.m_price AS price, m.m_picture AS picture, m.m_compose AS compose, c.c_name AS category from menu m, category c where m.m_catID = c.c_id ORDER BY c.c_name";
+    selectQuery = "SELECT m.m_id AS id, m.m_name AS krName, m.m_enName AS enName, m_cookTime AS cookTime, m.m_price AS price, " + 
+                         "m.m_picture AS picture, m.m_compose AS compose, TRUNCATE(AVG(s.st_cnt),1) AS starAvg, COUNT(s.st_cnt) AS avgCnt, c.c_name AS category " + 
+                  "FROM menu m LEFT OUTER JOIN category c ON m.m_catID = c.c_id " +
+                              "LEFT OUTER JOIN star s ON m.m_id = s.st_menuID " +
+                  "GROUP BY m.m_id " +
+                  "ORDER BY c.c_name;";
   }
 
   ORDER_Pool.getConnection(function(err, connection){
@@ -236,6 +251,36 @@ exports.insertOrder = function(req, res){
     },
     function(conn, cb){
       connection = conn;
+
+      var queryCheckTableStatus = "SELECT count(*) AS cnt FROM tableStatus WHERE ts_status != 'empty'";
+      for(var i=0; i<tableNum.length; i++){
+        if(i == 0)
+          queryCheckTableStatus += " AND (ts_tableNum = " + tableNum[i];
+        else
+          queryCheckTableStatus += " OR ts_tableNum = " + tableNum[i];
+      }
+      queryCheckTableStatus += ");";
+
+      connection.query(queryCheckTableStatus, function(err, results){
+        if(err) cb(err);
+
+        // table is not empty
+        if( results[0].cnt != 0 ){
+          var queryGetStatus = "SELECT t.ts_tableNum AS tableNum, t.ts_status AS status, t.ts_beforeStatus as beforeStatus, t.ts_recentlyChange AS recentlyChange, tl.o_id AS orderID FROM tableStatus t, tableList tl WHERE t.ts_tableNum = tl.t_tableNum;";
+          connection.query(queryGetStatus, function(err, result){
+            if(err) cb(err);
+
+            connection.release();
+            res.json({ result: 0, data: {details: "table is not empty!!!", db: result} });
+            return;
+          });
+        } else{
+        // table is empty
+          cb(null);
+        }
+      });
+    },
+    function(cb){
       var queryGetMenu = "SELECT m_id AS id, m_price AS price, m_name AS name FROM menu;";
       connection.query(queryGetMenu, cb);
     },
@@ -493,6 +538,24 @@ exports.completeOrder = function(req, res){
 };
 */
 
+exports.callEmployee = function(req, res){
+  var tableNum = req.body.tableNum;
+
+  // create message with object values
+  var message = new gcm.Message({
+      collapseKey: 'demo',
+      delayWhileIdle: true,
+      timeToLive: 3,
+      data: {
+          key1: '[호출]',
+          key2: tableNum + '번 테이블'
+      }
+  });
+   
+  sender.send(message, registrationIds, 4, function(err){ });
+  res.json({result: 1, data: 'call Employee Success'});
+};
+
 
 /******************************************************************************
  * Mobile(Android) - kicken : API Functions
@@ -642,7 +705,7 @@ exports.finishServe = function(req, res){
             isSetTableState = true;
 
             // update table state = 'have'
-            var queryUpdateState = "UPDATE tableStatus SET ts_beforeStatus = ts_status, ts_status = 'add', ts_recentlyChange = now() " + 
+            var queryUpdateState = "UPDATE tableStatus SET ts_beforeStatus = ts_status, ts_status = 'have', ts_recentlyChange = now() " + 
                                    "WHERE ts_tableNum IN " + 
                                        "(" +
                                            "SELECT t_tableNum as tableNum FROM tableList " + 
@@ -874,15 +937,32 @@ exports.mMenuFinder = function(req, res){
   var selectQuery = "";
 
   if(category){
+/*
     selectQuery = "SELECT m.m_id AS id, m.m_name AS krName, m.m_enName AS enName, m_cookTime AS cookTime, " +
                          "m.m_price AS price, m.m_picture AS picture, m.m_compose AS compose, c.c_name AS category " + 
                   "FROM menu m, category c " + 
                   "WHERE m.m_catID = c.c_id AND c.c_name = '" + category + "'";
+*/
+    selectQuery = "SELECT m.m_id AS id, m.m_name AS krName, m.m_enName AS enName, m_cookTime AS cookTime, m.m_price AS price, " + 
+                         "m.m_picture AS picture, m.m_compose AS compose, TRUNCATE(AVG(s.st_cnt),1) AS starAvg, COUNT(s.st_cnt) AS avgCnt, c.c_name AS category " + 
+                  "FROM menu m LEFT OUTER JOIN category c ON m.m_catID = c.c_id " +
+                              "LEFT OUTER JOIN star s ON m.m_id = s.st_menuID " +
+                  "WHERE c.c_name = '" + category + "' " +
+                  "GROUP BY m.m_id " +
+                  "ORDER BY c.c_name;";
   } else{
+/*
     selectQuery = "SELECT m.m_id AS id, m.m_name AS krName, m.m_enName AS enName, m_cookTime AS cookTime, " + 
                          "m.m_price AS price, m.m_picture AS picture, m.m_compose AS compose, c.c_name AS category " +
                   "FROM menu m, category c WHERE m.m_catID = c.c_id " + 
                   "ORDER BY c.c_name";
+*/
+    selectQuery = "SELECT m.m_id AS id, m.m_name AS krName, m.m_enName AS enName, m_cookTime AS cookTime, m.m_price AS price, " + 
+                         "m.m_picture AS picture, m.m_compose AS compose, TRUNCATE(AVG(s.st_cnt),1) AS starAvg, COUNT(s.st_cnt) AS avgCnt, c.c_name AS category " + 
+                  "FROM menu m LEFT OUTER JOIN category c ON m.m_catID = c.c_id " +
+                              "LEFT OUTER JOIN star s ON m.m_id = s.st_menuID " +
+                  "GROUP BY m.m_id " +
+                  "ORDER BY c.c_name;";
   }
 
   ORDER_Pool.getConnection(function(err, connection){
@@ -1047,6 +1127,49 @@ exports.mGuideWayLocation = function(req, res){
   res.render('mGuideWayLocation');
 }
 
+// 15.05.06 임승한 추가
+//exports.mAvgStar = function(req, res){
+//  res.render('mAvgStar');
+//}
+exports.mAvgStar = function(req, res){
+  var category = req.param('category') || '';
+  var selectQuery = "";
+
+  if(category){
+    selectQuery = "SELECT m.m_id AS id, m.m_name AS krName, m.m_enName AS enName, m_cookTime AS cookTime, m.m_price AS price, " + 
+                         "m.m_picture AS picture, m.m_compose AS compose, TRUNCATE(AVG(s.st_cnt),1) AS starAvg, COUNT(s.st_cnt) AS avgCnt, c.c_name AS category " + 
+                  "FROM menu m LEFT OUTER JOIN category c ON m.m_catID = c.c_id " +
+                              "LEFT OUTER JOIN star s ON m.m_id = s.st_menuID " +
+                  "WHERE c.c_name = '" + category + "' " +
+                  "GROUP BY m.m_id " +
+                  "ORDER BY c.c_name;";
+  } else{
+    selectQuery = "SELECT m.m_id AS id, m.m_name AS krName, m.m_enName AS enName, m_cookTime AS cookTime, m.m_price AS price, " + 
+                         "m.m_picture AS picture, m.m_compose AS compose, TRUNCATE(AVG(s.st_cnt),1) AS starAvg, COUNT(s.st_cnt) AS avgCnt, c.c_name AS category " + 
+                  "FROM menu m LEFT OUTER JOIN category c ON m.m_catID = c.c_id " +
+                              "LEFT OUTER JOIN star s ON m.m_id = s.st_menuID " +
+                  "GROUP BY m.m_id " +
+                  "ORDER BY c.c_name;";
+  }
+
+  ORDER_Pool.getConnection(function(err, connection){
+    connection.query(selectQuery, function(err, results){
+      if(err){
+        connection.release();
+        res.send('query getConnection Error');
+      } else{
+        connection.release();
+        res.render('mAvgStar', {results:results});
+      }
+    });
+  });
+}
+
+exports.mWebPos = function(req, res){
+  res.render('mWebPos');
+}
+
+
 
 
 
@@ -1056,10 +1179,9 @@ exports.mGuideWayLocation = function(req, res){
  * payment
  *****************************************************************************/
 
-exports.charge = function(req, res){
-  var orderID = req.body.orderID;
-  var cardPayment = req.body.cardPayment;
-  var cashPayment = req.body.cashPayment;
+exports.chargeList = function(req, res){
+  var orderID;
+  var tableNum = req.param('tableNum');
 
   var connection;
 
@@ -1069,19 +1191,153 @@ exports.charge = function(req, res){
     },
     function(conn, cb){
       connection = conn;
+      // check table status == 'have'
+      var queryGetStatus = "SELECT ts_status FROM tableStatus WHERE ts_tableNum = " + tableNum + ";";
+      connection.query(queryGetStatus, function(err, results){
+        if(err){
+          console.log(err);
+          connection.release();
+          res.json({result: 0, data: '[chargeList]: Error1'});
+          return;
+        } else{
+          var ts_status = results[0].ts_status;
+
+          if( ts_status == 'empty' || ts_status == 'clean' ){
+            connection.release();
+            res.json({result: 0, data: '[chargeList]: 계산이 완료된 테이블입니다. 테이블상태:' + ts_status});
+            return;
+          }
+          cb(null);
+        }
+      });
+    },
+    function(cb){
+      // get orderID
+      var queryGetOrderID = "SELECT o_id FROM tableList WHERE t_tableNum = " + tableNum + " " +
+                            "ORDER BY t_id DESC LIMIT 0,1;";
+      connection.query(queryGetOrderID, function(err, results){
+        if(err){
+          console.log(err);
+          connection.release();
+          res.json({result: 0, data: '[chargeList]: Error2'});
+          return;
+        } else{
+          if( results[0] ){
+            orderID = results[0].o_id;
+            cb(null);
+          } else{
+            connection.release();
+            res.json({result: 0, data: '해당 테이블번호에 주문내역이 없습니다.'});
+            return;
+          }
+        }
+      });
+    },
+    function(cb){
+      var queryGetOrderList = "SELECT m.m_name AS menuName, sum(o.om_orderCount) AS cnt, " +
+                                     "m.m_price*sum(o.om_orderCount) AS price " +
+                              "FROM orderMenuList o, menu m " + 
+                              "WHERE o.m_id = m.m_id AND o.o_id = " + orderID + " " +
+                              "GROUP BY o.m_id;";
+
+      connection.query(queryGetOrderList, cb);
+    }
+  ],
+  function(err, results){
+    if(err){
+      console.log(err);
+      connection.release();
+      res.json({result: 0, data: '[chargeList]: Error3'});
+    } else{
+      connection.release();
+      res.json({result: 1, data: results});
+    }
+  });
+}
+
+exports.charge = function(req, res){
+  var orderID;
+  var tableNum = req.body.tableNum;
+  var cardPayment = parseInt(req.body.cardPayment);
+  var cashPayment = parseInt(req.body.cashPayment);
+  var isDiscount = parseInt(req.body.isDiscount) || 0;
+
+  var connection;
+
+  async.waterfall([
+    function(cb){
+      ORDER_Pool.getConnection(cb);
+    },
+    function(conn, cb){
+      connection = conn;
+      // check table status == 'have'
+      var queryGetStatus = "SELECT ts_status FROM tableStatus WHERE ts_tableNum = " + tableNum + ";";
+      connection.query(queryGetStatus, function(err, results){
+        if(err){
+          connection.release();
+          res.json({result: 0, data: '[charge]: Error1'});
+          return;
+        } else{
+          var ts_status = results[0].ts_status;
+
+          if( ts_status == 'have' ){
+            cb(null);
+          } else{
+            connection.release();
+            res.json({result: 0, data: '[charge]: 식사중이 아닙니다. 테이블상태:' + ts_status});
+            return;
+          }
+        }
+      });
+    },
+    function(cb){
+      // get orderID
+      var queryGetOrderID = "SELECT o_id FROM tableList WHERE t_tableNum = " + tableNum + " " +
+                            "ORDER BY t_id DESC LIMIT 0,1;";
+      connection.query(queryGetOrderID, function(err, results){
+        if(err){
+          connection.release();
+          res.json({result: 0, data: '[charge]: Error2'});
+          return;
+        } else{
+          if( results[0] ){
+            orderID = results[0].o_id;
+            cb(null);
+          } else{
+            connection.release();
+            res.json({result: 0, data: '해당 테이블번호에 주문내역이 없습니다.'});
+            return;
+          }
+        }
+      });
+    },
+    function(cb){
       // check total = cardPayment + cashPayment
       var queryGetTotal = "SELECT o_total AS total FROM orderList WHERE o_id = " + orderID + ";"
       connection.query(queryGetTotal, function(err, results){
         if(err){
           connection.release();
-          res.json({result: 0, data: '[charge]: Error'});
+          res.json({result: 0, data: '[charge]: Error3'});
           return;
         } else{
-          if( results[0].total == cashPayment + cardPayment ){
+          var tot = results[0].total;
+
+          if(isDiscount)
+            tot = Math.floor(tot * 0.95);
+
+          //if( results[0].total == cashPayment + cardPayment ){
+          if( tot == cashPayment + cardPayment ){
             cb(null);
           } else{
             connection.release();
-            res.json({result: 0, data: '[charge]: total(' + results[0].total + ') is not equal with cash+card'});
+            var errstr = "";
+
+            if(isDiscount)
+              errstr = '[charge]: "discount" total(' + tot + ') is not equal with cash+card'
+            else
+              errstr = '[charge]: "not discount" total(' + tot + ') is not equal with cash+card'
+
+            res.json({result: 0, data: errstr});
             return;
           }
         }
@@ -1089,7 +1345,7 @@ exports.charge = function(req, res){
     },
     function(cb){
       var queryUpdatePayment = "UPDATE orderList " + 
-                               "SET o_cardPayment = " + cardPayment + ", o_cashPayment = " + cashPayment + 
+                               "SET o_cardPayment = " + cardPayment + ", o_cashPayment = " + cashPayment + " " +
                                "WHERE o_id = " + orderID + ";";
 
       connection.query(queryUpdatePayment, cb);
@@ -1104,7 +1360,7 @@ exports.charge = function(req, res){
   function(err, results){
     if(err){
       connection.release();
-      res.json({result: 0, data: '[charge]: Error'});
+      res.json({result: 0, data: '[charge]: Error4'});
     } else{
       connection.release();
       res.json({result: 1, data: '[charge]: Success'});
@@ -1113,6 +1369,68 @@ exports.charge = function(req, res){
 
 }
 
+
+
+/******************************************************************************
+ * like
+ *****************************************************************************/
+
+exports.like = function(req, res){
+  var updateLikeQuery = 'UPDATE likeCount set l_cnt = l_cnt + 1;';
+
+  ORDER_Pool.getConnection(function(err, connection){
+    connection.query(updateLikeQuery, function(err, results){
+      if(err){
+        connection.release();
+        res.json({result: 0, data: '[like]: connection error'});
+      } else{
+        connection.release();
+        res.json({result: 1, data: '[like]: 1 Like Count was added'});
+      }
+    });
+  });
+}
+
+exports.getLikeCnt = function(req, res){
+  var getLikeCntQuery = 'SELECT l_cnt AS likeCnt FROM likeCount WHERE l_id = 1;';
+
+  ORDER_Pool.getConnection(function(err, connection){
+    connection.query(getLikeCntQuery, function(err, results){
+      if(err){
+        connection.release();
+        res.json({result: 0, data: '[getLikeCnt]: connection error'});
+      } else{
+        connection.release();
+        res.json({result: 1, data: results[0]});
+      }
+    });
+  });
+}
+
+exports.putStar = function(req, res){
+  var starCnt = parseInt(req.body.starCnt) || '';
+  var menuID = parseInt(req.body.menuID) || '';
+
+  if( !starCnt || !menuID ){
+    res.json({result: 0, data: 'invalid parameter'});
+    return;
+  }
+
+  var putStarQuery = 'INSERT INTO star(st_cnt, st_regTime, st_menuID) ' + 
+                     'VALUES(' + starCnt + ', now(), ' + menuID + ');';
+
+  ORDER_Pool.getConnection(function(err, connection){
+    connection.query(putStarQuery, function(err, results){
+      if(err){
+        connection.release();
+        res.json({result: 0, data: '[putStar]: connection error'});
+      } else{
+        connection.release();
+        res.json({result: 1, data: '[putStar]: success'});
+      }
+    });
+  });
+}
 
 
 
