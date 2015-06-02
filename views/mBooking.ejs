@@ -1,44 +1,40 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Bootstrap 101 Template</title>
-        <!-- Bootstrap -->
-        <style>
-            body {
-                padding: 10px;
-            }
-        </style>
-        <link href="/stylesheets/bootstrap.min.css" rel="stylesheet">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="/stylesheets/bootstrap-responsive.css" rel="stylesheet">
-    </head>
-    <body>
-        <!-- Button to trigger modal -->
-        <a href="#myModal" role="button" class="btn" data-toggle="modal">Launch demo modal</a>
- 
-        <!-- Modal -->
-        <div class="modal hide" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                    ×
-                </button>
-                <h3 id="myModalLabel">Modal header</h3>
-            </div>
-            <div class="modal-body">
-                <p>
-                    One fine body…
-                </p>
-            </div>
-            <div class="modal-footer">
-                <button class="btn" data-dismiss="modal" aria-hidden="true">
-                    Close
-                </button>
-                <button class="btn btn-primary">
-                    Save changes
-                </button>
-            </div>
-        </div>
-        <script src="http://code.jquery.com/jquery-latest.js"></script>
+<head>
+  <!-- Don't forget to include jQuery ;) -->
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+        <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+        <link rel="stylesheet" href="/stylesheets/bootstrap-responsive.css">
+        <link rel="stylesheet" href="/stylesheets/jquery.ratings.css">
+
+<script src="/javascripts/jquery-1.11.2.js"></script>
+        <script src="/javascripts/jquery.mobile-1.4.5.js"></script>
         <script src="/javascripts/bootstrap.min.js"></script>
-    </body>
+        <script src="/javascripts/jquery.ratings.js"></script>
+        <script src="/javascripts/example.js"></script>
+
+
+
+</head>
+<body>
+
+<div data-role="page">
+  <div data-role="content">
+    <ul data-role="listview" data-inset="true">
+      <li><a href="#dialog">Hellow PINCOM Friends :)</a></li>
+    </ul>
+  </div>
+</div>
+
+<!-- Dialog only page -->
+<div data-role="dialog" id="dialog">
+  <div data-role="header">
+    <h1>PINCOM</h1>
+  </div>
+  <div data-role="content">
+    <p>Node.js기반 HTTP 클라이언트 & HTTP 서버 구현</p>
+  </div>
+</div>
+
+</body>
 </html>

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+	<title>YAHA Payment Section</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link rel="stylesheet" href="/stylesheets/yahaProject.css">
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+    <link rel="stylesheet" href="/stylesheets/bootstrap-responsive.css">
+    <link rel="stylesheet" href="/stylesheets/jquery.remodal.css">
+
+    <script src="/javascripts/jquery-1.11.2.js"></script>
+    
+  </head>
+
+<body>
+    <div class="container">
+       <hr>
+	<div class="section-main"><p>
+        <p class="remodal-cancel" style="color : white; background : #c0392b;" >POS Information</p>
+	<div class="section-title" align="center">
+        <img src="/images/incheonUni_logo.png" width="80%" style="margin-bottom : 2%;"/>
+	<div class="section-contents" align="left" style="margin-bottom : 1%;">
+        <p class="btn btn-success" style="margin-top: 1%; margin-bottom: 1%;">테이블번호</p>
+        <p id="ask" class="remodal-confirm" >조회</p><br>
+
+        <input id="msg" type="text" class="form-control" aria-describedby="helpBlock">
+	</div>
+
+
+	<!-- Table 결제 정보 출력 부분 -->
+	<div id="section" class="section-contents" align="left" style="padding-top: 5%; padding-bottom: 5%;"></div>
+	</div>
+	</div>
+    </div> <!-- /container -->	
+	
+	<div class="container">
+	<hr>
+	<div class="section-main"><p>
+        <div class="section-title" align="center">
+        <div class="section-contents" align="left">
+
+	<p class="btn btn-success" style="margin-bottom: 1%;">테이블번호</p>
+	<input id="table" type="text" class="form-control" aria-describedby="helpBlock">
+        <p class="btn btn-warning" style="margin-top: 1%; margin-bottom: 1%;">현금</p>
+	<input id="cash" type="text" class="form-control" aria-describedby="helpBlock">
+        <p class="btn btn-warning" style="margin-top: 1%; margin-bottom: 1%;">카드</p>
+	<input id="card" type="text" class="form-control" aria-describedby="helpBlock"><br>
+
+	<div id="section1" class="section-contents" align="left" style="padding-top: 5%; padding-bottom: 5%;">
+	</div><br>
+	<p id="push" class="remodal-confirm">일반결제</p>
+        <p id="discount" class="remodal-cancel" >할인결제</p><hr>
+
+	</div>
+	</div>
+	</div>
+	</div>
+
+
+
+
+
+    <script>
+    $("#msg").change( function () {
+
+    table_num = $(this).val();
+    $('#ask').click( function(){ test('chargeList/' + table_num) } );
+    // console.log("test01");
+    function test(value){
+        var url_value = value;
+        $.ajax({
+	    type : "GET",
+	    url: url_value,
+            async: false,
+            dataType:'json',
+            success: response_json
+            });
+        }
+
+        function response_json(json) {
+            var isNull = null;
+            var information = null;
+	    var information_result = json.result;
+            var information = json.data;
+            var information_value = "";
+    	    var information_count = information.length;
+	    var total = null;
+	    var total_js = null;
+   	if( information_result == 0 ) {
+	$("#section").html('').append(information);	
+	
+	}
+	else { 
+        for(var i=0; i<information_count; i++){
+        //내용물이 null값인지 아닌지 확인
+        if(information[i].menuName==isNull){
+			information[i].menuName="";
+	}
+    	if(information[i].cnt==isNull){
+            information[i].cnt="";
+        }
+    	if(information[i].price==isNull){
+	        information[i].price="";
+        }
+
+        total += information[i].price;
+        information_value +=   '<b>'+ "메뉴명 : " + '</b>' + information[i].menuName + ", "
+                             + '<b>'+ "수량 : " + '</b>' + information[i].cnt + "개, "
+                             + '<b>'+ "가격 : " + '</b>' + information[i].price + "원"
+			     + '</br>';
+        }
+
+	total_js = '<hr>' + '<b>'+ "총계 : " + '</b>' + total + "원";
+//	total=parseInt(total);
+	discount = total * 0.95 ;
+	console.log(total);
+	discount = " ( " + "5% 할인 적용 시 : " + discount + "원)";
+	$("#section").html('').append(information_value, total_js,  discount);
+
+
+
+        }
+	}
+    });
+////////////////////////////////////////////////////////
+
+    $('#table').change( function () {
+    $('#cash').change( function () {
+    $('#card').change( function () {
+
+    table_num = $(this).val();
+
+    // 일반 결제시 //
+    $('#push').click( function(){ test('charge') } );
+    function test(value){
+        var url_value = value;
+        $.ajax({
+	    type : "POST",
+	    url: url_value,
+            async: false,
+	    data:{ 'tableNum':$('#table').val(),
+		   'cashPayment':$('#cash').val(),
+		   'cardPayment':$('#card').val()
+		  },
+            success: response_json1
+            });
+        }
+
+// 할인 적용 결제시 //
+    $('#discount').click( function(){ function_discount('charge') } );
+    function function_discount(value){
+        var url_value = value;
+	var discount = 1;
+        $.ajax({
+            type : "POST",
+            url: url_value,
+            async: false,
+            data:{ 'tableNum':$('#table').val(),
+                   'cashPayment':$('#cash').val(),
+                   'cardPayment':$('#card').val(),
+		   'isDiscount' : discount
+                  },
+            success: response_json2
+            });
+        }
+
+	function response_json1(json) {
+            var isNull = null;
+            var information = null;
+            var information_result = json.result;
+            var information = json.data;
+            var information_value = "";
+            var information_count = information.length;
+            var total = null;
+        if( information_result == 0 ) {
+        $("#section1").html('').append(information);
+        }
+        if( information_result == 1) {
+        $("#section1").html('').append(" 결제가 정상적으로 처리되었습니다.");
+        }
+	}
+
+	function response_json2(json) {
+            var isNull = null;
+            var information = null;
+            var information_result = json.result;
+            var information = json.data;
+            var information_value = "";
+            var information_count = information.length;
+            var total = null;
+        if( information_result == 0 ) {
+        $("#section1").html('').append(information);
+        }
+        if( information_result == 1) {
+        $("#section1").html('').append(" 결제가 정상적으로 처리되었습니다.");
+        }
+        }
+
+
+	});
+	});
+    });
+    </script>
+</body></html>
+

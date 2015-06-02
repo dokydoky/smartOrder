@@ -1,8 +1,11 @@
-/* 20141~2015 */
+﻿/* 20141~2015 */
 /* WebMobile CSS*/
 /* 임승한 */
 /* <link rel="stylesheet" href="/stylesheets/yahaProject.css"> */
-	
+
+	.ui-collapsible-heading-toggle {
+			padding-left: 3%;
+	}
 	.mMain-Big-title {
 		    border-radius: 5px 5px 5px 5px;
 		    height: 50px;
@@ -26,6 +29,7 @@
 	/* mBusinessText */
 	    .mBusinessText {
 	    	font-size: 13px;
+			style="margin-top: 0.5%"
 	    }
 		.mBusinessSmallText {
 	    	font-size: 8px;
@@ -39,6 +43,7 @@
 	    	font-size: 16px;
 	    	font-weight: bold;
 	    	color: #7e6151;
+		margin-bottom: 0px;
 	    }
 	    
 	  /* Panel CSS */
@@ -76,6 +81,18 @@
 		    font-weight: bold;
 		    background: #BC2424;
 		}
+		
+		.mMain-title2 {
+		    border-radius: 5px 5px 5px 5px;
+		    height: 30px;
+		    padding: 0px 0 0 10px;
+		    line-height: 25px;
+		    font-size: 15px;
+		    color: #FFFFFF;
+		    font-weight: bold;
+		    background: #141ED7;
+		}
+		
 		/* Section */
 		.section-main {
 		  background: white;
@@ -97,6 +114,22 @@
 		    background: white;
 		    border: 1px solid #111;
 		    padding: 8px 15px;
+		    font-size: 16px;
+		    color: black;
+		    letter-spacing: 0;
+		    border-radius: 5px 5px 5px 5px ;
+		    font-weight: normal;
+		    margin-bottom: 0;
+		    overflow: hidden;
+		}
+		
+		 .section-contents2 {
+		    background: white;
+		    border: 1px solid #111;
+		    padding-left: 0px;
+			padding-right: 0px;
+			padding-top: 0px;
+			padding-bottom: 0px;
 		    font-size: 16px;
 		    color: black;
 		    letter-spacing: 0;
@@ -128,12 +161,71 @@
             -webkit-user-drag: none;
         }
 
+/*		Rating Bar		*/
+
+label {
+    display: block;
+    clear: both;
+    margin: 20px 0 20px 0;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+/******* EXAMPLE B *******/
+
+.rating-b .br-widget {
+    height: 25px;
+}
+
+.rating-b .br-widget a {
+    display: block;
+    width: 70px;
+    height: 16px;
+    float: left;
+    background-color: #e3e3e3;
+    margin: 1px;
+}
+
+.rating-b .br-widget a.br-active,
+.rating-b .br-widget a.br-selected {
+    background-color: #59a6d6;
+}
+
+.rating-b .br-widget .br-current-rating {
+    line-height: 1.1;
+    float: left;
+    padding: 0 20px 0 20px;
+    color: #646464;
+}
+
+.rating-b .br-readonly a.br-active,
+.rating-b .br-readonly a.br-selected {
+    background-color: #cbcbcb;
+}
+
+/******* EXAMPLE F *******/
+
+.rating-f .br-widget {
+    height: 24px;
+}
+
+.rating-f .br-widget a {
+    background: url('/images/star.png');
+    width: 24px;
+    height: 24px;
+    display: block;
+    float: left;
+}
+
+.rating-f .br-widget a.br-active,
+.rating-f .br-widget a.br-selected {
+    background-position: 0 24px;
+}
+
+/*	End of	Rating Bar	*/
 
 
-
-
-/*?*/
-  /* mm */
+/*
   .MenuTrueSteak .visual img {
 	overflow: hidden;
 	display: block;
@@ -143,6 +235,8 @@
   .CntLight.pd0 {
 	padding: 0px 0px;
   }
+*/
+
 
 
   

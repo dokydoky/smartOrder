@@ -4,13 +4,24 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="/stylesheets/yahaProject.css">
+	<title>YAHA Project Information Page</title>
+<link rel="stylesheet" href="/stylesheets/yahaProject.css">
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
 	<link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
 	<link rel="stylesheet" href="/stylesheets/bootstrap-responsive.css">
+	<link rel="stylesheet" href="/stylesheets/jquery.ratings.css">
+	<link rel="stylesheet" href="/stylesheets/jquery.remodal.css">
+
 	<script src="/javascripts/jquery-1.11.2.js"></script>
 	<script src="/javascripts/jquery.mobile-1.4.5.js"></script>
 	<script src="/javascripts/bootstrap.min.js"></script>
+	<script src="/javascripts/jquery.ratings.js"></script>
+        <script src="/javascripts/example.js"></script>
+
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="/javascripts/jquery.min.js"><\/script>')</script>
+        <!-- <script src="/javascripts/jquery.mobile-1.4.5.js"></script> -->
+        <script src="/javascripts/jquery.remodal.js"></script>
 </head>
 <body>
 	<div data-role="page" id="main" data-theme="a">
@@ -23,20 +34,21 @@
 	<!--End Header  -->
 
 	<!-- Panel Attribute -->
-    <div data-role="panel" data-position="left" data-display="overlay" data-theme="a" id="mypanel">
-		<a onclick="location.href='http://117.16.231.212:8010/mMain'" class="ui-link"><img src="/images/mMainLogo.jpg" width="100%"></a>
+	    <div data-role="panel" data-position="left" data-display="overlay" data-theme="a" id="mypanel">
+        <a onclick="location.href='http://117.16.231.212:8010/mMain'" class="ui-link"><img src="/images/mMainLogo.jpg" width="100%"></a>
         <h2 class="panel-title" align="center">메뉴 & 영업안내<h2>
-        <a class="ui-alt-icon ui-btn ui-shadow ui-corner-all ui-icon-grid ui-btn-icon-left" href="http://117.16.231.212:8010/mMenuFinder">메뉴</a>
-        <a class="ui-alt-icon ui-btn ui-shadow ui-corner-all ui-icon-shop ui-btn-icon-left" href="http://117.16.231.212:8010/mBusiness">영업안내</a>
+        <a class="ui-alt-icon ui-btn ui-shadow ui-corner-all ui-icon-grid ui-btn-icon-left" onclick="location.href='http://117.16.231.212:8010/mMenuFinder'">메뉴</a>
+        <a class="ui-alt-icon ui-btn ui-shadow ui-corner-all ui-icon-shop ui-btn-icon-left" onclick="location.href='http://117.16.231.212:8010/mBusiness'">영업안내</a>
         <h2 class="panel-title" align="center">테이블조회 & 찾아오시는길<h2>
-        <a class="ui-alt-icon ui-btn ui-shadow ui-corner-all ui-icon-info ui-btn-icon-left" href="http://117.16.231.212:8010/mCheckTable">매장현황</a>
-        <a class="ui-alt-icon ui-btn ui-shadow ui-corner-all ui-icon-location ui-btn-icon-left" href="http://117.16.231.212:8010/mGuideWayStart">길안내</a>
+        <a class="ui-alt-icon ui-btn ui-shadow ui-corner-all ui-icon-info ui-btn-icon-left" onclick="location.href='http://117.16.231.212:8010/mCheckTable'">매장현황</a>
+        <a class="ui-alt-icon ui-btn ui-shadow ui-corner-all ui-icon-location ui-btn-icon-left" onclick="location.href='http://117.16.231.212:8010/mGuideWayStart'">길안내</a>
         <h2 class="panel-title" align="center">YAHA Project<h2>
-        <a class="ui-alt-icon ui-btn ui-shadow ui-corner-all ui-icon-heart ui-btn-icon-left" href="http://117.16.231.212:8010/mProject">About Project</a>
-        <div class="section-contents" align="center">
-        	<a onclick="location.href='http://117.16.231.212:8010/mMain'" class="ui-link"><img src="/images/incheonUni.jpg" width="100%"></a>
+        <a class="ui-alt-icon ui-btn ui-shadow ui-corner-all ui-icon-heart ui-btn-icon-left" onclick="location.href='http://117.16.231.212:8010/mProject'">About Project</a>
+
+	<div align="center">
+        <a onclick="location.href='http://117.16.231.212:8010/mMain'" class="ui-link"><img src="/images/incheonUni.jpg" width="70%" style="padding-top: 8px;"></a>
         </div>
-	</div>
+    </div>
 	<!-- End Panel Attribute -->
 
 	<!-- Contetns -->
@@ -44,7 +56,7 @@
 		<div data-role="collapsibleset">
 			<div data-role="collapsible" data-collapsed="false">
 	        	<h3>프로젝트</h3>
-	        	<img src="/images/incheonUni.jpg" width="100%" height="30%" />
+	        	<img src="/images/incheonUni_logo.png" width="80%" style="margin-left: 10%;" />
 				<h2 class="mMain-title" align="center">YAHA Project<h2>
 				<p class="mBusinessText" align="center">Youthful Ardor, Hopeful Advance<br/>( 청춘의 열정, 희망의 전진 )
 				</p>		

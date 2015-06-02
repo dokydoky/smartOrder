@@ -1,0 +1,254 @@
+<!doctype html>
+<!--
+    // DB 연동하는 방법
+    i = 0;
+    results.length       // 길이
+    results[i].id,       // menu ID
+    results[i].krName,   // 메뉴 한글이름
+    results[i].enName,   // 메뉴 영어이름
+    results[i].price,    // 가격
+    results[i].picture,  // 사진 URL
+    results[i].compose,  // 음식 재료
+    results[i].category  // 카테고리
+-->
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>YAHA Project Menu Page</title>
+
+	<link rel="stylesheet" href="/stylesheets/yahaProject.css">
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+	<link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+	<link rel="stylesheet" href="/stylesheets/bootstrap-responsive.css">
+	<link rel="stylesheet" href="/stylesheets/jquery.ratings.css">
+	<link rel="stylesheet" href="/stylesheets/jquery.remodal.css">
+
+	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+        <script src="/javascripts/bootstrap-carousel.js"></script>
+        <script src="/javascripts/bootstrap.min.js"></script>
+
+<!--        <script src="/javascripts/jquery.ratings.js"></script>-->
+   <!--     <script src="/javascripts/example.js"></script>-->
+
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="/javascripts/jquery.min.js"><\/script>')</script>
+        <script src="/javascripts/jquery.remodal.js"></script>
+
+	<style>
+	.remodal-star {
+	  color: #EF9F0E;
+	  border: 2px solid #E56508;
+	  background: #f4f4f4;
+	}
+
+	div ul li {
+float: left;
+list-style:none;
+}
+	#btn-like1, #btn-like2, #btn-like3, #btn-like4, #btn-like5 {
+	background-color : #FCF23F;
+	}
+	#btn-exit {
+        background-color : #0600FF;
+        }
+	h2 {
+	font-size : 100%;
+	}
+	.btn_detail {
+  display: inline-block;
+  padding: 0% 0%;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  touch-action: manipulation;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+	</style>
+</head>
+
+<body>
+
+	<div data-role="page" id="main" data-theme="a">
+	
+		<!-- Header -->
+		<div data-role="header" data-theme="a" >
+			<a onclick="location.href='http://117.16.231.212:8010/mMain'" class="ui-btn ui-shadow ui-corner-all ui-icon-home ui-btn-icon-notext ui-btn-a ui-btn-inline"></a>
+		</div>
+		<!--End Header  -->
+
+	<!-- Panel Attribute -->
+	<!-- End Panel Attribute -->
+	
+	<!-- 메뉴 선택 이미지 버튼 -->
+	<div data-role="content">
+		<div class="section-main"><p>
+			<div class="section-title" align="center">
+				<img src="/images/tableNumberLogo00.png" width="100%" height="20%">
+				<h2 class="mMain-title" align="center">OUTBACK STEAK HOUSE<h2>
+					<div class="section-contents" align="center">
+						<div data-role="content" align="center" class="menuBanner">
+							<a onclick="location.href='/mAvgStar?category=스테이크'" class="ui-link"><img src="/images/menuSteak.jpg" width="100%" height="10%"></a>
+                                                        <a onclick="location.href='/mAvgStar?category=샐러드'" class="ui-link"><img src="/images/menuSalad.jpg" width="100%" height="10%"></a>
+                                                        <a onclick="location.href='/mAvgStar?category=오지타이저'" class="ui-link"><img src="/images/menuOz.jpg" width="100%" height="10%"></a>
+                                                        <a onclick="location.href='/mAvgStar?category=씨푸드'" class="ui-link"><img src="/images/menuSeefood.jpg" width="100%" height="10%"></a>
+                                                        <a onclick="location.href='/mAvgStar?category=페이버릿'" class="ui-link"><img src="/images/menuFavorite.jpg" width="100%" height="10%"></a>
+                                                        <a onclick="location.href='/mAvgStar?category=파스타'" class="ui-link"><img src="/images/menuPasta.jpg" width="100%" height="10%"></a>
+						</div>
+					</div>
+			</div>
+		</div>
+	</div>
+	<!-- End 메뉴 선택 이미지 버튼 --> 
+
+	<!-- Contetns :: 메뉴 출력 -->
+	<style> ul{ list-style:none; } </style>
+
+	<div align="center">
+		<div class="section-main"><p>
+			<div class="section-title" align="center">
+				<h2 class="mMain-title" align="center">MENU<h2><hr>
+				<% for(var i=0; i<results.length; i++){ %>
+				<p class="mBusinessBigText" style="margin-bottom: 0px; margin-bottom: 0px;padding-top: 8px;"><%= results[i].id %>. <%= results[i].krName %></p>
+				<p class="mBusinessMiddleText" style="margin-bottom: 0px;">( <%= results[i].enName %> )</p>
+				<img src="<%= results[i].picture %>" width="100%" height="30%"/>
+				<div>
+				<button class='<%= results[i].id %>' id='star01'><img src='/images/star_1.png' width='65%'></button><br>
+                                <button class='<%= results[i].id %>' id='star02'><img src='/images/star_2.png' width='65%'></button><br>
+                                <button class='<%= results[i].id %>' id='star03'><img src='/images/star_3.png' width='65%'></button><br>
+                                <button class='<%= results[i].id %>' id='star04'><img src='/images/star_4.png' width='65%'></button><br>
+                                <button class='<%= results[i].id %>' id='star05'><img src='/images/star_5.png' width='65%'></button><br>
+				</div><br>
+
+				<% } %>   
+			</div>
+		</div>
+	</div>
+ 	<!-- End Contetns -->
+
+<!-- Modal -->
+<div class="remodal" data-remodal-id="modal">
+        <div class="modal-header" align="center" style="padding-top: 0px; padding-bottom: 0px;">
+        <h2 class="mMain-title" align="center" style=" margin-top: 0px;">평가가 완료되었습니다!</h2>
+	</div>
+	<div class="modal-body" align="center" style="padding-top: 0px;"></div>
+	<div class="section-title" align="center">
+        <p><img src="/images/tableNumberLogo00.png" width="80%" align="center"></p><hr>
+        <p><img src="/images/YAHAtext.png" width="80%" align="left"></p>
+        <p><img src="/images/YAHAtext2.png" width="70%" align="right"></p>
+</div><br>
+	- 직원에게 위의 쿠폰을 보여주시면 할인이 적용됩니다.
+	<div class="modal-footer" style="padding-top: 5px;"></div>
+	<a class="remodal-confirm" onclick="location.href='http://117.16.231.212:8010/mMain'">확인</a>
+</div>
+
+<!-- End of Modal -->
+
+	<script>
+
+	var starValue = null;
+	var urlValue = 'putStar';
+	var starId = null;
+	var classId = null;
+	var starId = null;
+
+<% for(var i=0; i<results.length; i++){ %>
+
+	$('.' + <%= results[i].id %> ).click( function(){
+
+	classId = $(this).attr('class');
+        starId = $(this).attr('id');
+
+	if(starId == 'star01'){
+	starValue = 1;
+	}
+	if(starId == 'star02'){
+        starValue = 2;
+        }if(starId == 'star03'){
+        starValue = 3;
+        }if(starId == 'star04'){
+        starValue = 4;
+        }if(starId == 'star05'){
+        starValue = 5;
+        }
+
+	functionClass(classId, starValue);
+	
+	});
+<% } %>
+
+function functionClass(classId, starValue) {
+        console.log( "menu ID = " + classId, "Post된 별 점수 = " + starValue + "점");
+
+	$.ajax({
+	type : "POST",
+	url: urlValue,      // 117.16.231.212:8010/putStar
+	async: false,
+	data:{ 'starCnt': starValue, // 별점 개수(1~5개)
+		'menuID': classId       // 별점을 줄 메뉴의 ID
+	      },
+	success: response_json
+	});                                 
+};
+
+
+function response_json(json) {
+	var isNull = null;
+	var information = null;
+	var information_result = json.result;
+	var information = json.data;
+	var information_value = "";
+	var information_count = information.length;
+	var total = null;
+	if( information_result == 0 ) {
+	console.log("실패");
+	}
+	if( information_result == 1) {
+	console.log("성공 ");
+	var url = "#modal";    
+	$(location).attr('href',url);
+	}
+}
+
+
+  /* Modal Events */
+
+  $(document).on("open", ".remodal", function () {
+  });
+
+  $(document).on("opened", ".remodal", function () {
+  });
+
+  $(document).on("close", ".remodal", function (e) {
+  });
+
+  $(document).on("closed", ".remodal", function (e) {
+  });
+
+  $(document).on("confirm", ".remodal", function () {
+  });
+
+  $(document).on("cancel", ".remodal", function () {
+  });
+	</script>
+
+	<!-- Footer -->
+	<div data-role="footer" data-theme="a">
+    	<h4>&copy; 2015 YAHA Team Project</h4>
+	</div>
+	<!-- End Footer -->
+	
+	</body>
+</html>
+

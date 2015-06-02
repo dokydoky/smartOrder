@@ -15,41 +15,83 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>YAHA Project Menu Page</title>
+
 	<link rel="stylesheet" href="/stylesheets/yahaProject.css">
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
 	<link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
 	<link rel="stylesheet" href="/stylesheets/bootstrap-responsive.css">
-	<script src="/javascripts/jquery-1.11.2.js"></script>
-	<script src="/javascripts/jquery.mobile-1.4.5.js"></script>
-	<script src="/javascripts/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="/stylesheets/jquery.ratings.css">
+	<link rel="stylesheet" href="/stylesheets/jquery.remodal.css">
+
+	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+        <script src="/javascripts/bootstrap-carousel.js"></script>
+        <script src="/javascripts/bootstrap.min.js"></script>
+
+        <script src="/javascripts/jquery.ratings.js"></script>
+<!--        <script src="/javascripts/example.js"></script> -->
+
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="/javascripts/jquery.min.js"><\/script>')</script>
+
+        <script src="/javascripts/jquery.remodal.js"></script>
+
+	<style>
+	.remodal-star {
+	  color: #EF9F0E;
+	  border: 2px solid #E56508;
+	  background: #f4f4f4;
+	}
+
+	div ul li {
+float: left;
+list-style:none;
+}
+	#btn-like1, #btn-like2, #btn-like3, #btn-like4, #btn-like5 {
+	background-color : #FCF23F;
+	}
+	#btn-exit {
+        background-color : #0600FF;
+        }
+	h2 {
+	font-size : 100%;
+	}
+	.btn_detail {
+  display: inline-block;
+  padding: 0% 0%;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  touch-action: manipulation;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+	</style>
 </head>
 
 <body>
+
 	<div data-role="page" id="main" data-theme="a">
 	
 		<!-- Header -->
 		<div data-role="header" data-theme="a" >
-			<a href="#mypanel" class="ui-btn ui-shadow ui-corner-all ui-icon-bars ui-btn-icon-notext ui-btn-a ui-btn-inline"></a>
+			<a onclick="location.href='http://117.16.231.212:8010/mMain'" class="ui-btn ui-shadow ui-corner-all ui-icon-home ui-btn-icon-notext ui-btn-a ui-btn-inline"></a>
 			<div align="center"><img src="/images/header.jpg" width="100%" height="40%">
 			</div>
 		</div>
 		<!--End Header  -->
 
-		<!-- Panel Attribute -->
-		<div data-role="panel" data-position="left" data-display="overlay" data-theme="a" id="mypanel">
-			<a onclick="location.href='http://117.16.231.212:8010/mMain'" class="ui-link"><img src="/images/mMainLogo.jpg" width="100%"></a>
-			<h2 class="panel-title" align="center">메뉴 & 영업안내<h2>
-			<a class="ui-alt-icon ui-btn ui-shadow ui-corner-all ui-icon-grid ui-btn-icon-left" href="http://117.16.231.212:8010/mMenuFinder">메뉴</a>
-			<a class="ui-alt-icon ui-btn ui-shadow ui-corner-all ui-icon-shop ui-btn-icon-left" href="http://117.16.231.212:8010/mBusiness">영업안내</a>
-			<h2 class="panel-title" align="center">테이블조회 & 찾아오시는길<h2>
-			<a class="ui-alt-icon ui-btn ui-shadow ui-corner-all ui-icon-info ui-btn-icon-left" href="http://117.16.231.212:8010/mCheckTable">매장현황</a>
-			<a class="ui-alt-icon ui-btn ui-shadow ui-corner-all ui-icon-location ui-btn-icon-left" href="http://117.16.231.212:8010/mGuideWayStart">길안내</a>
-			<h2 class="panel-title" align="center">YAHA Project<h2>
-			<a class="ui-alt-icon ui-btn ui-shadow ui-corner-all ui-icon-heart ui-btn-icon-left" href="http://117.16.231.212:8010/mProject">About Project</a>
-			<div class="section-contents" align="center">
-			<a onclick="location.href='http://117.16.231.212:8010/mMain'" class="ui-link"><img src="/images/incheonUni.jpg" width="100%"></a>
-		</div>
-	</div>
+	<!-- Panel Attribute -->
 	<!-- End Panel Attribute -->
 	
 	<!-- 메뉴 선택 이미지 버튼 -->
@@ -74,87 +116,81 @@
 	<!-- End 메뉴 선택 이미지 버튼 --> 
 
 	<!-- Contetns :: 메뉴 출력 -->
+
 	<div align="center">
 		<div class="section-main"><p>
 			<div class="section-title" align="center">
 				<h2 class="mMain-title" align="center">MENU<h2><hr>
 				<% for(var i=0; i<results.length; i++){ %>
-				<p class="mBusinessBigText"><%= results[i].id %>. <%= results[i].krName %></p>
-				<p class="mBusinessMiddleText">( <%= results[i].enName %> )</p>
+				<p class="mBusinessBigText" style="margin-bottom: 0px; margin-bottom: 0px;padding-top: 8px;"><%= results[i].id %>. <%= results[i].krName %></p>
+				<p class="mBusinessMiddleText" style="margin-bottom: 0px;">( <%= results[i].enName %> )</p>
 				<img src="<%= results[i].picture %>" width="100%" height="30%"/>
-				<p class="mBusinessText">가격(price) : <%= results[i].price %>원</p>
-				<p class="mBusinessText">재료(ingredient) : <%= results[i].compose %></p>
-				<p class="mBusinessText">조리시간(Cooking Time) : <%= results[i].cookTime %>분</p>
-				<a id='<%=results[i].id %>' href="#myModal" role="button" class="btn" data-toggle="modal">자세히보기</a><hr>
-				<% } %>
+				<p class="mBusinessText" style="margin-bottom: 0px;">가격(price) : <%= results[i].price %>원</p>
+				<p class="mBusinessText" style="margin-bottom: 0px;">재료(ingredient) : <%= results[i].compose %></p>
+				<p class="mBusinessText" style="margin-bottom: 0px;">조리시간(Cooking Time) : <%= results[i].cookTime %>분</p>
+				<br><p class='mBusinessMiddleText' style="margin-bottom: 5px;">평균 별점 (Average Grade)</p>	
+				<p class='mBusinessMiddleText' style="margin-bottom: 5px;">( 참여인원 : <%= results[i].avgCnt %>명 )</p>
 
-				<!--
+				<p class="<%= results[i].id %>" style="margin-bottom: 0px;"></p> 
+
+                                <!-- 평균 별점 Section -->				
 				<script>
-				// length값 : 29 
-				var id_length = <%= results.length %>;
-				</script>
-				-->
+				var starId = <%= results[i].id %>;
+				var starAvg = <%= results[i].starAvg %>; 
+                               	// console.log(starId + "의 별 평점 : " + starAvg);
+                                var isNull= null;
+                                if( starAvg == isNull){
+                                var ratingAvg = "<div class='section-contents2'><img src='/images/star00.png' width='50%'></div><br>";
+                                $("." + starId ).html('').append(ratingAvg);
+                                }
+                                if( 0.5 <= starAvg && starAvg <= 1.4 ){
+                                var ratingAvg = "<div class='section-contents2'><img src='/images/star01.png' width='50%'></div><br>";
+                                $("." + starId ).html('').append(ratingAvg);
+                                }
+                                if( 1.5 <= starAvg && starAvg <= 2.4 ){
+                                var ratingAvg = "<div class='section-contents2'><img src='/images/star02.png' width='50%'></div><br>";
+                                $("." + starId ).html('').append(ratingAvg);
+                                }
+                                if( 2.5 <= starAvg && starAvg <= 3.4 ){
+                                var ratingAvg = "<div class='section-contents2'><img src='/images/star03.png' width='50%'></div><br>";
+                                $("." + starId ).html('').append(ratingAvg);
+                                }
+                                if( 3.5 <= starAvg && starAvg <= 4.4 ){
+                                var ratingAvg = "<div class='section-contents2'><img src='/images/star04.png' width='50%'></div><br>";
+                                $("." + starId ).html('').append(ratingAvg);
+                                }
+                                if( 4.5 <= starAvg && starAvg <= 5.4 ){
+                                var ratingAvg = "<div class='section-contents2'><img src='/images/star05.png' width='50%'></div><br>";
+                                $("." + starId ).html('').append(ratingAvg);
+                                }
+                                </script>
+				<!-- 평균 별점 Section 끝 -->
+                                <a class="remodal-confirm" onclick="location.href='http://117.16.231.212:8010/mAvgStar'">평가하기</a>
+				<a id="<%=results[i].id %>" class="remodal-cancel" href="#modal">자세히보기</a>
+
+				<% } %>   
 			</div>
 		</div>
 	</div>
  	<!-- End Contetns -->
+<!-- Modal -->
+<div class="remodal" data-remodal-id="modal">
 
-	<!-- Modal -->
-	<div class="modal hide" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
-		<div class="modal-body" align="center">
-		</div>
-		<div class="modal-footer">
-			<div data-role="navbar" align="center">
-				<ul>
-					<li><a data-dismiss="modal" class="ui-btn ui-shadow ui-corner-all ui-icon-power ui-btn-icon-notext ui-btn-a ui-btn-inline"></a></li>
-				</ul>
-	                </div>
-		</div>
-	</div>
+<!-- <div class="modal-header" align="center"></div> -->
+<div class="modal-body" align="center"></div>
+                <div class="modal-footer">
+                </div>
+  <br>
+  <a class="remodal-cancel" href="#">Cancel</a>
+  <a class="remodal-confirm" href="#">OK</a>
+</div>
+
 
 <script>
 <% for(var i=0; i<results.length; i++){ %>
-	console.log(<%= results[i].id %>);	//디버깅 작업
+	//console.log(<%= results[i].id %>);	//디버깅 작업
 	$('#'+<%= results[i].id %>).click( function(){ test('menuFinder/detail?id='+<%= results[i].id %>) } );
 <% } %>
-
-/*
-	for(var i=1; i<=id_length; i++){
-		console.log(i);
-		switch(i){
-		case 1 : $('#'+i).click( function(){ var value='menuFinder/detail?id='+1; test(value); }); break;
-		case 2 : $('#'+i).click( function(){ var value='menuFinder/detail?id='+2; test(value); }); break; 
-		case 3 : $('#'+i).click( function(){ var value='menuFinder/detail?id='+3; test(value); }); break;
-		case 4 : $('#'+i).click( function(){ var value='menuFinder/detail?id='+4; test(value); }); break;
-		case 5 : $('#'+i).click( function(){ var value='menuFinder/detail?id='+5; test(value); }); break;
-		case 6 : $('#'+i).click( function(){ var value='menuFinder/detail?id='+6; test(value); }); break;
-		case 7 : $('#'+i).click( function(){ var value='menuFinder/detail?id='+7; test(value); }); break;
-		case 8 : $('#'+i).click( function(){ var value='menuFinder/detail?id='+8; test(value); }); break;
-		case 9 : $('#'+i).click( function(){ var value='menuFinder/detail?id='+9; test(value); }); break;
-		case 10 : $('#'+i).click( function(){ var value='menuFinder/detail?id='+10; test(value); }); break;
-		case 11 : $('#'+i).click( function(){ var value='menuFinder/detail?id='+11; test(value); }); break;
-		case 12 : $('#'+i).click( function(){ var value='menuFinder/detail?id='+12; test(value); }); break;
-		case 13 : $('#'+i).click( function(){ var value='menuFinder/detail?id='+13; test(value); }); break;
-		case 14 : $('#'+i).click( function(){ var value='menuFinder/detail?id='+14; test(value); }); break;
-		case 15 : $('#'+i).click( function(){ var value='menuFinder/detail?id='+15; test(value); }); break;
-		case 16 : $('#'+i).click( function(){ var value='menuFinder/detail?id='+16; test(value); }); break;
-		case 17 : $('#'+i).click( function(){ var value='menuFinder/detail?id='+17; test(value); }); break;
-		case 18 : $('#'+i).click( function(){ var value='menuFinder/detail?id='+18; test(value); }); break;
-		case 19 : $('#'+i).click( function(){ var value='menuFinder/detail?id='+19; test(value); }); break;
-		case 20 : $('#'+i).click( function(){ var value='menuFinder/detail?id='+20; test(value); }); break;
-	   	case 21 : $('#'+i).click( function(){ var value='menuFinder/detail?id='+21; test(value); }); break;
-	    	case 22 : $('#'+i).click( function(){ var value='menuFinder/detail?id='+22; test(value); }); break;
-	    	case 23 : $('#'+i).click( function(){ var value='menuFinder/detail?id='+23; test(value); }); break;
-	    	case 24 : $('#'+i).click( function(){ var value='menuFinder/detail?id='+24; test(value); }); break;
-	    	case 25 : $('#'+i).click( function(){ var value='menuFinder/detail?id='+25; test(value); }); break;
-	    	case 26 : $('#'+i).click( function(){ var value='menuFinder/detail?id='+26; test(value); }); break;
-	    	case 27 : $('#'+i).click( function(){ var value='menuFinder/detail?id='+27; test(value); }); break;
-	    	case 28 : $('#'+i).click( function(){ var value='menuFinder/detail?id='+28; test(value); }); break;
-	    	case 29 : $('#'+i).click( function(){ var value='menuFinder/detail?id='+29; test(value); }); break;
-		default : break;
-		}
-	}
-*/
 
 function test(value){
 	var url_value= value;
@@ -244,12 +280,54 @@ function response_json(json) {
                             info_ingre_detail + "<br>" + "<br>" + 
                             "<p class='mBusinessMiddleText'>"+info_ingre_addTitle + "</p>" + 
                             info_ingre_addDetail + "<br>" + "<hr>" +
-							"<div class='mMain-title' align='center'>" + "SIDE MENU" + "</div> " +
-							side_information;
+			    "<div class='mMain-title' align='center'>" + "SIDE MENU" + "</div> " + side_information; 
+	 
+
 
 	//html('')는 기존의 정보 Clear
     $(".modal-body").html('').append(major_information);
+/*
+    var rating_bar = "<div class='mMain-title' align='center'>" + "평가하기" + "</div>" + "<br>" + 
+			"<div>" +
+			"<button id='star01'><img src='/images/star_1.png' width='65%'></button>" + "<br>" +
+
+			"<button id='star02'><img src='/images/star_2.png' width='65%'></button>" + "<br>" +
+			"<button id='star03'><img src='/images/star_3.png' width='65%'></button>" + "<br>" +
+			"<button id='star04'><img src='/images/star_4.png' width='65%'></button>" + "<br>" +
+			"<button id='star05'><img src='/images/star_5.png' width='65%'></button>" + "<br>" +
+			"</div>" + "<br>" + "<br>";
+
+    $(".modal-header").html('').append(rating_bar);
+*/
 }
+
+</script>
+
+<!-- Events -->
+<script>
+  $(document).on("open", ".remodal", function () {
+    console.log("open");
+  });
+
+  $(document).on("opened", ".remodal", function () {
+    console.log("opened");
+  });
+
+  $(document).on("close", ".remodal", function (e) {
+    console.log('close' + (e.reason ? ", reason: " + e.reason : ''));
+  });
+
+  $(document).on("closed", ".remodal", function (e) {
+    console.log('closed' + (e.reason ? ', reason: ' + e.reason : ''));
+  });
+
+  $(document).on("confirm", ".remodal", function () {
+    console.log("confirm");
+  });
+
+  $(document).on("cancel", ".remodal", function () {
+    console.log("cancel");
+  });
 </script>
  
 	<!-- Footer -->

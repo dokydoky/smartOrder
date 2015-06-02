@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <title>Sign in · Twitter Bootstrap</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link rel="stylesheet" href="/stylesheets/yahaProject.css">
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+    <link rel="stylesheet" href="/stylesheets/bootstrap-responsive.css">
+    <script src="/javascripts/jquery-1.11.2.js"></script>
+    
+  </head>
+
+<body>
+    <div class="container">
+       <hr>
+	<div class="section-main"><p>
+	<div class="section-title" align="center">
+	<h2 class="mMain-title" align="center"> Information <h2>
+	<div class="section-contents" align="left">
+	<button id="ask" class="btn btn-primary">조회</button></br>
+	<b>테이블번호</b>
+        <input id="msg" type="text" class="input-block-level">
+
+
+	<!-- Table 결제 정보 출력 부분 -->
+	</div>
+	<hr>
+	<div id="section" class="section-contents" align="left"></div>
+	</div>
+	</div>
+    </div> <!-- /container -->	
+    <script>
+    $("#msg").change( function () {
+
+    table_num = $(this).val();
+    $('#ask').click( function(){ test('chargeList/' + table_num) } );
+    // console.log("test01");
+    function test(value){
+        var url_value = value;
+        $.ajax({
+			type : "GET",
+			url: url_value,
+            async: false,
+            dataType:'json',
+            success: response_json
+            });
+        }
+
+        function response_json(json) {
+            var isNull = null;
+            var information = null;
+	    var information_result = json.result;
+            var information = json.data;
+            var information_value = "";
+    	    var information_count = information.length;
+	    var total = null;
+   	if( information_result == 0 ) {
+	$("#section").html('').append(information);	
+	
+	}
+	else { 
+        for(var i=0; i<information_count; i++){
+        //내용물이 null값인지 아닌지 확인
+        if(information[i].menuName==isNull){
+			information[i].menuName="";
+	}
+    	if(information[i].cnt==isNull){
+            information[i].cnt="";
+        }
+    	if(information[i].price==isNull){
+	        information[i].price="";
+        }
+
+        total += information[i].price;
+        information_value +=   '<b>'+ "메뉴명 : " + '</b>' + information[i].menuName + ", "
+                             + '<b>'+ "수량 : " + '</b>' + information[i].cnt + "개, "
+                             + '<b>'+ "가격 : " + '</b>' + information[i].price + "원"
+			     + '</br>';
+        }
+
+	total = '<hr>' + '<b>'+ "총계 : " + '</b>' + total + "원";
+	$("#section").html('').append(information_value, total);
+        }
+	}
+    });
+    </script>
+</body></html>

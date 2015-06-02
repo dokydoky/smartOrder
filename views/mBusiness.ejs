@@ -4,12 +4,23 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>YAHA Project Business Page</title>
 	<link rel="stylesheet" href="/stylesheets/yahaProject.css">
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
 	<link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+	<link rel="stylesheet" href="/stylesheets/jquery.ratings.css">
+	<link rel="stylesheet" href="/stylesheets/jquery.remodal.css">
+
 	<script src="/javascripts/jquery-1.11.2.js"></script>
 	<script src="/javascripts/jquery.mobile-1.4.5.js"></script>	
 	<script src="/javascripts/bootstrap.min.js"></script>
+	<script src="/javascripts/jquery.ratings.js"></script>
+        <script src="/javascripts/example.js"></script>
+
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="/javascripts/jquery.min.js"><\/script>')</script>
+        <!-- <script src="/javascripts/jquery.mobile-1.4.5.js"></script> -->
+        <script src="/javascripts/jquery.remodal.js"></script>
 </head>
 
 <body>
@@ -22,21 +33,22 @@
 		</div>
 		<!--End Header  -->
 
-		<!-- Panel Attribute -->
-        <div data-role="panel" data-position="left" data-display="overlay" data-theme="a" id="mypanel">
-        	<a onclick="location.href='http://117.16.231.212:8010/mMain'" class="ui-link"><img src="/images/mMainLogo.jpg" width="100%"></a>
-        	<h2 class="panel-title" align="center">메뉴 & 영업안내<h2>
-        	<a class="ui-alt-icon ui-btn ui-shadow ui-corner-all ui-icon-grid ui-btn-icon-left" href="http://117.16.231.212:8010/mMenuFinder">메뉴</a>
-          	<a class="ui-alt-icon ui-btn ui-shadow ui-corner-all ui-icon-shop ui-btn-icon-left" href="http://117.16.231.212:8010/mBusiness">영업안내</a>
-          	<h2 class="panel-title" align="center">테이블조회 & 찾아오시는길<h2>
-          	<a class="ui-alt-icon ui-btn ui-shadow ui-corner-all ui-icon-info ui-btn-icon-left" href="http://117.16.231.212:8010/mCheckTable">매장현황</a>
-          	<a class="ui-alt-icon ui-btn ui-shadow ui-corner-all ui-icon-location ui-btn-icon-left" href="http://117.16.231.212:8010/mGuideWayStart">길안내</a>
-          	<h2 class="panel-title" align="center">YAHA Project<h2>
-          	<a class="ui-alt-icon ui-btn ui-shadow ui-corner-all ui-icon-heart ui-btn-icon-left" href="http://117.16.231.212:8010/mProject">About Project</a>
-          	<div class="section-contents" align="center">
-          		<a onclick="location.href='http://117.16.231.212:8010/mMain'" class="ui-link"><img src="/images/incheonUni.jpg" width="100%"></a>
-          	</div>
-		</div>
+	<!-- Panel Attribute -->
+	    <div data-role="panel" data-position="left" data-display="overlay" data-theme="a" id="mypanel">
+        <a onclick="location.href='http://117.16.231.212:8010/mMain'" class="ui-link"><img src="/images/mMainLogo.jpg" width="100%"></a>
+        <h2 class="panel-title" align="center">메뉴 & 영업안내<h2>
+        <a class="ui-alt-icon ui-btn ui-shadow ui-corner-all ui-icon-grid ui-btn-icon-left" onclick="location.href='http://117.16.231.212:8010/mMenuFinder'">메뉴</a>
+        <a class="ui-alt-icon ui-btn ui-shadow ui-corner-all ui-icon-shop ui-btn-icon-left" onclick="location.href='http://117.16.231.212:8010/mBusiness'">영업안내</a>
+        <h2 class="panel-title" align="center">테이블조회 & 찾아오시는길<h2>
+        <a class="ui-alt-icon ui-btn ui-shadow ui-corner-all ui-icon-info ui-btn-icon-left" onclick="location.href='http://117.16.231.212:8010/mCheckTable'">매장현황</a>
+        <a class="ui-alt-icon ui-btn ui-shadow ui-corner-all ui-icon-location ui-btn-icon-left" onclick="location.href='http://117.16.231.212:8010/mGuideWayStart'">길안내</a>
+        <h2 class="panel-title" align="center">YAHA Project<h2>
+        <a class="ui-alt-icon ui-btn ui-shadow ui-corner-all ui-icon-heart ui-btn-icon-left" onclick="location.href='http://117.16.231.212:8010/mProject'">About Project</a>
+
+	<div align="center">
+        <a onclick="location.href='http://117.16.231.212:8010/mMain'" class="ui-link"><img src="/images/incheonUni.jpg" width="70%" style="padding-top: 8px;"></a>
+        </div>
+    </div>
         <!-- End Panel Attribute -->
 
 		<!-- Contetns -->
@@ -47,51 +59,35 @@
 	        		<img src="/images/mBusiness01.png" width="100%" height="30%" />
 	        		<p class="mBusinessText">
 			        	아웃백은 스테이크하우스입니다<br/>
-			        	정통의 맛과 조리법, 신선한 재료로 정성껏 준비한 메뉴를 <br/>
-			        	가족, 친구와 함께 나누는 공간입니다<br/>
-			        	눈에 보이는 것을 쫓지 않고 투박하게<br/> 
-			        	쉬운 길로 가지 않고 정직하게 True Taste를 찾겠습니다
+			        	정통의 맛과 조리법, 신선한 재료로 정성껏 준비한 메뉴를 가족, 친구와 함께 나누는 공간입니다. 눈에 보이는 것을 쫓지 않고 투박하게 쉬운 길로 가지 않고 정직하게 True Taste를 찾겠습니다.
 			        </p>
-			        <p class="mBusinessBigText">아웃백은 True를 추구하는 스테이크하우스입니다</p>
+			        <p class="mBusinessBigText">"아웃백은 True를 추구하는 스테이크하우스입니다."</p><br>
 			        <img src="/images/mBusiness02.png" width="100%" height="30%" />
 			        <p class="mBusinessText">
-			        	최상의 맛을 위한 기다림<br/>
-						아웃백의 HOMEMADE는 기다림부터 시작됩니다.<br/>
-						최소 3주 이상 숙성을 기다리는 스테이크부터<br/>
-						6시간 이상 끓여내는 수프,<br/>
-						신선한 생과일을 매일 아침 직접 짜내어 제공하는 주스까지!
+			        	최상의 맛을 위한 기다림, 아웃백의 HOMEMADE는 기다림부터 시작됩니다.<br/>
+					최소 3주 이상 숙성을 기다리는 스테이크부터 6시간 이상 끓여내는 수프, 신선한 생과일을 매일 아침 직접 짜내어 제공하는 주스까지!
 			        </p>
-			        <p class="mBusinessBigText">아웃백은 True를 추구하는 스테이크하우스입니다</p>
 	      		</div>
 		      	<div data-role="collapsible">
 		        	<h3>사회공헌 활동</h3>
 		        	<img src="/images/mBusiness03.png" width="100%" height="30%" />
 		        	<p class="mBusinessMiddleText">
-			        	아웃백의 러브백 장학금이 학생들의 등록금 부담을 줄이고,<br/> 
-			        	꿈을 이루는데 보탬이 되었으면 합니다.</p>
+			        	아웃백의 러브백 장학금이 학생들의 등록금 부담을 줄이고, 꿈을 이루는데 보탬이 되었으면 합니다.</p>
 		        	<p class="mBusinessText">
-			        	아웃백은 2013년 3월 사회복지 공동 모금회 사랑의 열매와<br/>
-			        	함께 공익 연계 마케팅 업무 협약을 맺고,<br/>
-			        	러브백 봄 한정 메뉴를 출시했습니다
+			        	아웃백은 2013년 3월 사회복지 공동 모금회 사랑의 열매와 함께 공익 연계 마케팅 업무 협약을 맺고, 러브백 봄 한정 메뉴를 출시했습니다
 		        	</p>
 			        <img src="/images/mBusiness04.png" width="100%" height="30%" />
 			        <p class="mBusinessMiddleText">
-			        	아웃백 고객과 함께 즐기고 나눌 수 있는<br/>
-			        	따뜻한 송년파티로 행복을 느낍니다.
+			        	아웃백 고객과 함께 즐기고 나눌 수 있는 따뜻한 송년파티로 행복을 느낍니다.
 			        </p>
 			        <p class="mBusinessText">
-			        	아웃백 스테이크하우스는 2011년 12월 <br/>
-			        	아웃백 페이스북과 홈페이지를 통해 2012명의 고객을 초청하여<br/>
-						송년파티 이벤트를 진행하였습니다.
+			        	아웃백 스테이크하우스는 2011년 12월, 아웃백 페이스북과 홈페이지를 통해 2012명의 고객을 초청하여 송년파티 이벤트를 진행하였습니다.
 			        </p>
 			        <img src="/images/mBusiness05.png" width="100%" height="30%" />
 			        <p class="mBusinessMiddleText">
-			        	아웃백은 우리 주변의 결식,<br/>
-			        	소외 아동들에게 지속적인 사랑을 전달합니다.</p>
+			        	아웃백은 우리 주변의 결식, 소외 아동들에게 지속적인 사랑을 전달합니다.</p>
 			        <p class="mBusinessText">
-			        	아웃백 스테이크하우스는 아동들의 균형 있는 성장을 위해<br/>
-			        	설치된 한국지역아동센터연합회를 통하여<br/>
-						지역의 아동들에게 지속적으로 사랑을 전달합니다.
+			        	아웃백 스테이크하우스는 아동들의 균형 있는 성장을 위해 설치된 한국지역아동센터연합회를 통하여 지역의 아동들에게 지속적으로 사랑을 전달합니다.
 			        </p>
 				</div>
 		      	<div data-role="collapsible">

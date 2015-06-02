@@ -1,366 +1,623 @@
 <!DOCTYPE html>
-<!--[if IE 9 ]><html class="ie ie9" lang="en" class="no-js"> <![endif]-->
-<!--[if !(IE)]><!-->
 <html lang="en" class="no-js">
-<!--<![endif]-->
-
 <head>
+	<title>Web Client</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="description" content="QueenAdmin - Beautiful Bootstrap Admin Dashboard Theme">
 
-<title>YAHA TITLE TEST</title>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="QueenAdmin - Beautiful Bootstrap Admin Dashboard Theme">
-<meta name="author" content="The Develovers">
+	<!-- CSS -->
+	<link rel="stylesheet" href="/stylesheets/yahaProject.css">
+	<link href="stylesheets/web_stylesheets/css/calendar.css" rel="stylesheet" type="text/css">
+	<link href="stylesheets/web_stylesheets/css/ionicons.css" rel="stylesheet" type="text/css">
+	<link href="stylesheets/web_stylesheets/css//main.min.css" rel="stylesheet" type="text/css">
+	<link href="javascripts/web_javascripts/js/Simple-Clean-jQuery-Calendar-Date-Picker-Plugin/css/style.css" rel="stylesheet" type="text/css">
+	<link href="stylesheets/web_stylesheets/css/fullcalendar.css" rel="stylesheet" type="text/css">
+	<link href="stylesheets/web_stylesheets/css/fullcalendar.print.css" rel="stylesheet" type="text/css">
+	<link href="stylesheets/web_stylesheets/css/bootstrap-combined.min.css" rel="stylesheet" type="text/css">
 
-<!-- CSS -->
-<link href="stylesheets/web_stylesheets/css/bootstrap.css" rel="stylesheet" type="text/css">
-<link href="stylesheets/web_stylesheets/css/ionicons.css" rel="stylesheet" type="text/css">
-<link href="stylesheets/web_stylesheets/css/main.min.css" rel="stylesheet" type="text/css">
 
-<!-- Google Fonts -->
-<link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,300,400,700' rel='stylesheet' type='text/css'>
-
-<!-- Fav and touch icons -->
-<link rel="shortcut icon" href="images/web_images/img/favicon.ico">
-
+	<!-- Google Fonts -->
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,300,400,700' rel='stylesheet' type='text/css'>
+	<!-- icons -->
+	<link href="images/web_images/img/favicon.ico" rel="shortcut icon">
+	<!-- Javascript -->
+	<script src="javascripts/web_javascripts/js/jquery/chart.js"></script>
+	<script src="javascripts/web_javascripts/js/jquery/jquery-2.1.3.js"></script>
+	<script src="javascripts/web_javascripts/js/bootstrap/bootstrap.js"></script>
+	<script src="javascripts/web_javascripts/js/jquery/jquery.flot.js"></script>
+	<script src="javascripts/web_javascripts/js/jquery/jquery.flot.time.js"></script>
+	<script src="javascripts/web_javascripts/js/jquery/jquery.flot.orderBars.js"></script>
+	<script src="javascripts/web_javascripts/js/yaha_calendar.js"></script>
+	<script src="javascripts/web_javascripts/js/Simple-Clean-jQuery-Calendar-Date-Picker-Plugin/js/calendar.js"></script>
+        <script src="javascripts/web_javascripts/js/fullcalendar.js"></script>
+        <script src="javascripts/web_javascripts/js/bootstrap.min.js"></script>
 </head>
 
-
-
-
-
-
-
-
-
 <body class="fixed-top-active basic-charts">
-
-<!-- WRAPPER -->
-<div class="wrapper">
+	<!-- WRAPPER -->
+	<div class="wrapper">
+	<!-- TOP NAV BAR -->
+	<nav class="top-bar navbar-fixed-top" role="navigation"> 
+		<div class="logo-area"> 
+			</a>
+			<div class="logo pull-left">
+			<a href='http://117.16.231.212:8010/stat'">
+			<img src="images/web_images/img/yahalogo.png" width="100%"></a> 
+				</a>
+			</div>
+		</div>
+	</nav>
 		
-<!-- TOP NAV BAR -->
-<nav class="top-bar navbar-fixed-top" role="navigation">
+	<!-- COLUMN LEFT -->
+	<div id="col-left" class="col-left">
+		<nav id="main-nav" class="main-nav">
+                <ul class="main-menu">
+                        <li>
+                                <a href="#Calendar Page">
+                                <i class="ion-calendar">
+                                </i>
+                                <span class="text">Calendar</span>
+                                </a>
+                        </li>
 
-<div class="logo-area">
-<a href="#" id="btn-nav-sidebar-minified" class="btn btn-link btn-nav-sidebar-minified pull-left">
-<i class="icon ion-arrow-swap"></i>
-</a>
-
-<div class="logo pull-left">
-<a href="yaha.html">
-<img src="images/web_images/img/yahalogo.png" alt="yaha home">
-</a>
-
-</div>
-</div>
-</nav>
-<!-- END TOP NAV BAR -->
-
-<!-- COLUMN LEFT -->
-<div id="col-left" class="col-left">
-<nav id="main-nav" class="main-nav">
-<h3></h3>
-
-
-<ul class="main-menu">
-<li>
-<a href="#Best Menu Page">
-<i class="icon ion-thumbsup">
-</i>
-<span class="text">Best Menu</span>
-</a></li>
-
-<ul class="main-menu">
-<li>
-<a href="#Profit Page">
-<i class="icon ion-social-usd">
-</i>
-<span class="text">Profit</span>
-</a></li>
-
-<ul class="main-menu">
-<li>
-<a href="#Employee Page">
-<i class="icon ion-person">
-</i>
-<span class="text">Employee</span>
-</a></li>
-
-</nav>
-</div>
-<!-- END COLUMN LEFT -->
-
-<!-- COLUMN RIGHT -->
-<div id="col-right" class="col-right ">
-<div class="container-fluid primary-content">
-				
-<!-- PRIMARY CONTENT HEADING -->
-<div class="primary-content-heading clearfix">
-<h2>YAHA MANAGER PAGE</h2>
-</div>
-<div class="widget-content">
-<h3 class="sr-only">QUICK SUMMARY INFO</h3>
-<div class="summary" style="padding:50px 0px 100px 0px;">
-<div class="col-sm-3 text-center">
-<div class="quick-info horizontal">
-<i class="icon ion-thumbsup pull-left bg-seagreen"></i>
-<p>3700 <span>LIKES</span></p>
-</div>
-</div>
-<div class="col-sm-3 text-center">
-<div class="quick-info horizontal">
-<i class="icon ion-cash pull-left bg-green"></i>
-<p>$5,400 <span>PROFIT</span></p>
-</div>
-</div>
-<div class="col-sm-3 text-center">
-<div class="quick-info horizontal">
-<i class="icon ion-person-stalker pull-left bg-blue"></i>
-<p>7285 <span>EMPLOYEE</span></p>
-</div>
-</div>
-</div>
-</div>
-<!-- END PRIMARY CONTENT HEADING -->
-
-<div class="row">
-<div class="col-md-6">
-<div class="widget">
-<div class="widget-header clearfix">
-
-<h3><i class="icon ion-ios7-browsers"></i> 
-<span>YAHA MANAGER PAGE</span>
-</h3>		
-
-</div>
-
-<div class="widget-content">
-<h4>YAHA MANAGER PAGE</h4>
-<ul class="nav nav-tabs" role="tablist">
-<li class="active">
-<a href="#home" role="tab" data-toggle="tab">Best Menu</a></li>
-<li><a href="#profile" role="tab" data-toggle="tab">Profit</a></li>
-<li><a href="#settings" role="tab" data-toggle="tab">Employee</a></li>							
-</ul>
-
-<div class="tab-content">
-<div class="tab-pane fade in active" id="home">
-<h5>Best Menu</h5>
-<table class="table table-hover colored-header">
-<thead>
-<tr>
-<th>rank</th>
-<th>Menu Type</th>
-<th>Menu Name</th>
-<th>Amount</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>Steve</td>
-<td>Jobs</td>
-<td>@steve</td>
-</tr>
-<tr>
-<td>2</td>
-<td>Simon</td>
-<td>Philips</td>
-<td>@simon</td>
-</tr>
-<tr>
-<td>3</td>
-<td>Jane</td>
-<td>Doe</td>
-<td>@jane</td>
-</tr>
-</tbody>
-</table>
-</div>
-
-<div class="tab-pane fade" id="profile">
-<h5>Sales</h5>
-
-
-
-</div>
-
-<div class="tab-pane fade" id="settings">
-<h5>Tab Settings</h5>
-<p>Dramatically supply adaptive imperatives and stand-alone content. Seamlessly pursue exceptional solutions after web-enabled potentialities. Synergistically negotiate alternative best practices whereas professional "outside the box" thinking. Completely expedite dynamic.</p>
-</div>
-<div class="tab-pane fade in" id="dropdown1">
-<h5>Tab Dropdown 1</h5>
-<p>Phosfluorescently revolutionize viral leadership via turnkey technology. Synergistically monetize intermandated strategic theme areas through multimedia based.</p>
-</div>
-<div class="tab-pane fade" id="dropdown2">
-<h5>Tab Dropdown 2</h5>
-<p>Continually mesh resource sucking synergy before sustainable e-commerce. Efficiently incentivize leading-edge alignments with go forward expertise. Conveniently myocardinate leveraged process improvements through progressive models. Collaboratively.</p>
-</div>
-</div>
-</div>
-</div>
-
-
-<!--HOVER ROWS-->
-<div id="Best Menu Page" style="padding:50px"></div>
-<div class="widget" id="Best Menu Chart">
-<div class="widget-header clearfix">
-<h3><i class="icon ion-android-storage"></i> 
-<span>Best Menu</span>
-</h3>
-</div>
-<div class="widget-content">
-<table class="table table-hover colored-header">
-<thead>
-<tr>
-<th>#</th>
-<th>First Name</th>
-<th>Last Name</th>
-<th>Username</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>Steve</td>
-<td>Jobs</td>
-<td>@steve</td>
-</tr>
-<tr>
-<td>2</td>
-<td>Simon</td>
-<td>Philips</td>
-<td>@simon</td>
-</tr>
-<tr>
-<td>3</td>
-<td>Jane</td>
-<td>Doe</td>
-<td>@jane</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<!--END HOVER ROWS-->
-
-<!-- LINE CHART -->
-<div id="Profit Page" style="padding:50px"></div>
-<div class="widget">
-<div class="widget-header clearfix">
-<h3><i class="icon ion-arrow-graph-up-right"></i> 
-<span>Profit</span>
-</h3>
+		<ul class="main-menu">
+			<li>
+				<a href="#Best Menu Page">
+				<i class="icon ion-thumbsup">
+				</i>
+				<span class="text">Best Menu</span>
+				</a>
+			</li>
 			
-</div>
-<div class="widget-content">
-<div class="flot-chart" id="demo-line-chart" style="position: relative; padding: 0px;"><canvas class="flot-base" width="602" height="250" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 602px; height: 250px;"></canvas><div class="flot-text" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; font-size: smaller; color: rgb(84, 84, 84);"><div class="flot-x-axis flot-x1-axis xAxis x1Axis" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; display: block;"><div style="position: absolute; max-width: 66px; font-style: normal; font-variant: normal; font-weight: 400; font-stretch: normal; font-size: 10px; line-height: 11.5px; font-family: 'Open Sans', sans-serif; color: rgb(85, 85, 85); top: 239px; left: 21px; text-align: center;">Oct</div><div style="position: absolute; max-width: 66px; font-style: normal; font-variant: normal; font-weight: 400; font-stretch: normal; font-size: 10px; line-height: 11.5px; font-family: 'Open Sans', sans-serif; color: rgb(85, 85, 85); top: 239px; left: 442px; text-align: center;">Oct</div><div style="position: absolute; max-width: 66px; font-style: normal; font-variant: normal; font-weight: 400; font-stretch: normal; font-size: 10px; line-height: 11.5px; font-family: 'Open Sans', sans-serif; color: rgb(85, 85, 85); top: 239px; left: 90px; text-align: center;">Dec</div><div style="position: absolute; max-width: 66px; font-style: normal; font-variant: normal; font-weight: 400; font-stretch: normal; font-size: 10px; line-height: 11.5px; font-family: 'Open Sans', sans-serif; color: rgb(85, 85, 85); top: 239px; left: 511px; text-align: center;">Dec</div><div style="position: absolute; max-width: 66px; font-style: normal; font-variant: normal; font-weight: 400; font-stretch: normal; font-size: 10px; line-height: 11.5px; font-family: 'Open Sans', sans-serif; color: rgb(85, 85, 85); top: 239px; left: 162px; text-align: center;">Feb</div><div style="position: absolute; max-width: 66px; font-style: normal; font-variant: normal; font-weight: 400; font-stretch: normal; font-size: 10px; line-height: 11.5px; font-family: 'Open Sans', sans-serif; color: rgb(85, 85, 85); top: 239px; left: 583px; text-align: center;">Feb</div><div style="position: absolute; max-width: 66px; font-style: normal; font-variant: normal; font-weight: 400; font-stretch: normal; font-size: 10px; line-height: 11.5px; font-family: 'Open Sans', sans-serif; color: rgb(85, 85, 85); top: 239px; left: 231px; text-align: center;">Apr</div><div style="position: absolute; max-width: 66px; font-style: normal; font-variant: normal; font-weight: 400; font-stretch: normal; font-size: 10px; line-height: 11.5px; font-family: 'Open Sans', sans-serif; color: rgb(85, 85, 85); top: 239px; left: 301px; text-align: center;">Jun</div><div style="position: absolute; max-width: 66px; font-style: normal; font-variant: normal; font-weight: 400; font-stretch: normal; font-size: 10px; line-height: 11.5px; font-family: 'Open Sans', sans-serif; color: rgb(85, 85, 85); top: 239px; left: 371px; text-align: center;">Aug</div></div><div class="flot-y-axis flot-y1-axis yAxis y1Axis" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; display: block;"><div style="position: absolute; font-style: normal; font-variant: normal; font-weight: 400; font-stretch: normal; font-size: 10px; line-height: 11.5px; font-family: 'Open Sans', sans-serif; color: rgb(85, 85, 85); top: 229px; left: 18px; text-align: right;">0</div><div style="position: absolute; font-style: normal; font-variant: normal; font-weight: 400; font-stretch: normal; font-size: 10px; line-height: 11.5px; font-family: 'Open Sans', sans-serif; color: rgb(85, 85, 85); top: 203px; left: 6px; text-align: right;">200</div><div style="position: absolute; font-style: normal; font-variant: normal; font-weight: 400; font-stretch: normal; font-size: 10px; line-height: 11.5px; font-family: 'Open Sans', sans-serif; color: rgb(85, 85, 85); top: 178px; left: 6px; text-align: right;">400</div><div style="position: absolute; font-style: normal; font-variant: normal; font-weight: 400; font-stretch: normal; font-size: 10px; line-height: 11.5px; font-family: 'Open Sans', sans-serif; color: rgb(85, 85, 85); top: 153px; left: 6px; text-align: right;">600</div><div style="position: absolute; font-style: normal; font-variant: normal; font-weight: 400; font-stretch: normal; font-size: 10px; line-height: 11.5px; font-family: 'Open Sans', sans-serif; color: rgb(85, 85, 85); top: 128px; left: 6px; text-align: right;">800</div><div style="position: absolute; font-style: normal; font-variant: normal; font-weight: 400; font-stretch: normal; font-size: 10px; line-height: 11.5px; font-family: 'Open Sans', sans-serif; color: rgb(85, 85, 85); top: 103px; left: 0px; text-align: right;">1000</div><div style="position: absolute; font-style: normal; font-variant: normal; font-weight: 400; font-stretch: normal; font-size: 10px; line-height: 11.5px; font-family: 'Open Sans', sans-serif; color: rgb(85, 85, 85); top: 78px; left: 0px; text-align: right;">1200</div><div style="position: absolute; font-style: normal; font-variant: normal; font-weight: 400; font-stretch: normal; font-size: 10px; line-height: 11.5px; font-family: 'Open Sans', sans-serif; color: rgb(85, 85, 85); top: 53px; left: 0px; text-align: right;">1400</div><div style="position: absolute; font-style: normal; font-variant: normal; font-weight: 400; font-stretch: normal; font-size: 10px; line-height: 11.5px; font-family: 'Open Sans', sans-serif; color: rgb(85, 85, 85); top: 28px; left: 0px; text-align: right;">1600</div><div style="position: absolute; font-style: normal; font-variant: normal; font-weight: 400; font-stretch: normal; font-size: 10px; line-height: 11.5px; font-family: 'Open Sans', sans-serif; color: rgb(85, 85, 85); top: 3px; left: 0px; text-align: right;">1800</div></div></div><canvas class="flot-overlay" width="602" height="250" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 602px; height: 250px;"></canvas><div class="legend"><div style="position: absolute; width: 52px; height: 34px; top: 13px; right: 15px; opacity: 0.85; background-color: transparent;"> </div><table style="position:absolute;top:13px;right:15px;;font-size:smaller;color:#545454"><tbody><tr><td class="legendColorBox"><div style="border:1px solid transparent;padding:1px"><div style="width:4px;height:0;border:5px solid rgb(145,145,145);overflow:hidden"></div></div></td><td class="legendLabel">Visits</td></tr><tr><td class="legendColorBox"><div style="border:1px solid transparent;padding:1px"><div style="width:4px;height:0;border:5px solid rgb(89,183,222);overflow:hidden"></div></div></td><td class="legendLabel">Sales</td></tr></tbody></table></div></div>
-</div>
-</div>
-<!-- END LINE CHART -->
+		<ul class="main-menu">
+			<li>
+				<a href="#Profitmonthly Page">
+				<i class="icon ion-social-usd">
+				</i>
+				<span class="text">Profit (monthly)</span>
+				</a>
+			</li>
+			
+		<ul class="main-menu">
+			<li>
+				<a href="#Profitdaily Page">
+				<i class="icon ion-social-usd">
+				</i>
+				<span class="text">Profit (daily)</span>
+				</a>
+			</li>		
+		</nav>
+	</div>
+	
+	
+	<!-- Contents -->	
+	<!-- COLUMN RIGHT -->
+	<div id="col-right" class="col-right ">
+		<div class="container-fluid primary-content">
+			<div class="container">
+        <div id="Calendar Page" style="padding:2px"></div>
+				<div class="primary-content-heading clearfix">
+                                	<h2>YAHA MANAGER PAGE</h2>
+                        	</div>
+	
+	<div class="widget">
+        	<div class="widget-header clearfix">
+        		<h3>
+			<i class="icon ion-calendar"></i>
+        		<span>Calendar</span>
+        		</h3>
+        	</div>
+		<div class="widget-content">
+			<div id="calendar"></div>
+				<div id="createEventModal" class="modal hide" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
+    					<div class="modal-header">
+        					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+        					<h3 id="myModalLabel1">오늘의 매출 통계</h3>
+    					</div>
+ 					<div class="modal-body">
+    						<form id="createAppointmentForm" class="form-horizontal">
+        					<div class="control-group">
+            					<div class="controls controls-row" id="todaybestmenu" style"margin-top:5px;">
+        					</div>
+						</div>
+            					<div class="control-group">
+            					<div class="controls controls-row" id="todayprofit" style="margin-top:5px;">
+            					</div>
+        					</div>
+    						</form>
+    					</div>
+    					<div class="modal-footer">
+        					<button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+    					</div>
+				</div>
+			</div>
+		</div>
+                                        <div id="Best Menu Page" style="padding:10px"></div>	
+	<hr>
+	판매수량 조회	
 
-<!-- VERTICAL BAR CHART  -->
-<div id="Employee Page" style="padding:50px"></div>
-<div class="widget">
-<div class="widget-header clearfix">
-<h3><i class="icon ion-stats-bars"></i> 
-<span>Employee</span>
-</h3>
-</div>
-<div class="widget-content">
-<div class="flot-chart" id="demo-vertical-bar-chart" style="position: relative; padding: 0px;">
-<canvas class="flot-base" width="602" height="250" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 602px; height: 250px;">
-</canvas>
-<div class="flot-text" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; font-size: smaller; color: rgb(84, 84, 84);">
-<div class="flot-x-axis flot-x1-axis xAxis x1Axis" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; display: block;">
-<div style="position: absolute; max-width: 54px; font-style: normal; font-variant: normal; font-weight: 400; font-stretch: normal; font-size: 10px; line-height: 11.5px; font-family: 'Open Sans', sans-serif; color: rgb(85, 85, 85); top: 239px; left: 16px; text-align: center;">Sat</div>
-<div style="position: absolute; max-width: 54px; font-style: normal; font-variant: normal; font-weight: 400; font-stretch: normal; font-size: 10px; line-height: 11.5px; font-family: 'Open Sans', sans-serif; color: rgb(85, 85, 85); top: 239px; left: 413px; text-align: center;">Sat</div>
-<div style="position: absolute; max-width: 54px; font-style: normal; font-variant: normal; font-weight: 400; font-stretch: normal; font-size: 10px; line-height: 11.5px; font-family: 'Open Sans', sans-serif; color: rgb(85, 85, 85); top: 239px; left: 71px; text-align: center;">Sun</div>
-<div style="position: absolute; max-width: 54px; font-style: normal; font-variant: normal; font-weight: 400; font-stretch: normal; font-size: 10px; line-height: 11.5px; font-family: 'Open Sans', sans-serif; color: rgb(85, 85, 85); top: 239px; left: 468px; text-align: center;">Sun</div>
-<div style="position: absolute; max-width: 54px; font-style: normal; font-variant: normal; font-weight: 400; font-stretch: normal; font-size: 10px; line-height: 11.5px; font-family: 'Open Sans', sans-serif; color: rgb(85, 85, 85); top: 239px; left: 127px; text-align: center;">Mon</div>
-<div style="position: absolute; max-width: 54px; font-style: normal; font-variant: normal; font-weight: 400; font-stretch: normal; font-size: 10px; line-height: 11.5px; font-family: 'Open Sans', sans-serif; color: rgb(85, 85, 85); top: 239px; left: 524px; text-align: center;">Mon</div>
-<div style="position: absolute; max-width: 54px; font-style: normal; font-variant: normal; font-weight: 400; font-stretch: normal; font-size: 10px; line-height: 11.5px; font-family: 'Open Sans', sans-serif; color: rgb(85, 85, 85); top: 239px; left: 184px; text-align: center;">Tue</div>
-<div style="position: absolute; max-width: 54px; font-style: normal; font-variant: normal; font-weight: 400; font-stretch: normal; font-size: 10px; line-height: 11.5px; font-family: 'Open Sans', sans-serif; color: rgb(85, 85, 85); top: 239px; left: 582px; text-align: center;">Tue</div>
-<div style="position: absolute; max-width: 54px; font-style: normal; font-variant: normal; font-weight: 400; font-stretch: normal; font-size: 10px; line-height: 11.5px; font-family: 'Open Sans', sans-serif; color: rgb(85, 85, 85); top: 239px; left: 240px; text-align: center;">Wed</div>
-<div style="position: absolute; max-width: 54px; font-style: normal; font-variant: normal; font-weight: 400; font-stretch: normal; font-size: 10px; line-height: 11.5px; font-family: 'Open Sans', sans-serif; color: rgb(85, 85, 85); top: 239px; left: 298px; text-align: center;">Thu</div>
-<div style="position: absolute; max-width: 54px; font-style: normal; font-variant: normal; font-weight: 400; font-stretch: normal; font-size: 10px; line-height: 11.5px; font-family: 'Open Sans', sans-serif; color: rgb(85, 85, 85); top: 239px; left: 358px; text-align: center;">Fri</div>
-</div>
-<div class="flot-y-axis flot-y1-axis yAxis y1Axis" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; display: block;">
-<div style="position: absolute; font-style: normal; font-variant: normal; font-weight: 400; font-stretch: normal; font-size: 10px; line-height: 11.5px; font-family: 'Open Sans', sans-serif; color: rgb(85, 85, 85); top: 229px; left: 12px; text-align: right;">0</div>
-<div style="position: absolute; font-style: normal; font-variant: normal; font-weight: 400; font-stretch: normal; font-size: 10px; line-height: 11.5px; font-family: 'Open Sans', sans-serif; color: rgb(85, 85, 85); top: 191px; left: 6px; text-align: right;">50</div>
-<div style="position: absolute; font-style: normal; font-variant: normal; font-weight: 400; font-stretch: normal; font-size: 10px; line-height: 11.5px; font-family: 'Open Sans', sans-serif; color: rgb(85, 85, 85); top: 153px; left: 0px; text-align: right;">100</div>
-<div style="position: absolute; font-style: normal; font-variant: normal; font-weight: 400; font-stretch: normal; font-size: 10px; line-height: 11.5px; font-family: 'Open Sans', sans-serif; color: rgb(85, 85, 85); top: 116px; left: 0px; text-align: right;">150</div>
-<div style="position: absolute; font-style: normal; font-variant: normal; font-weight: 400; font-stretch: normal; font-size: 10px; line-height: 11.5px; font-family: 'Open Sans', sans-serif; color: rgb(85, 85, 85); top: 78px; left: 0px; text-align: right;">200</div>
-<div style="position: absolute; font-style: normal; font-variant: normal; font-weight: 400; font-stretch: normal; font-size: 10px; line-height: 11.5px; font-family: 'Open Sans', sans-serif; color: rgb(85, 85, 85); top: 40px; left: 0px; text-align: right;">250</div>
-<div style="position: absolute; font-style: normal; font-variant: normal; font-weight: 400; font-stretch: normal; font-size: 10px; line-height: 11.5px; font-family: 'Open Sans', sans-serif; color: rgb(85, 85, 85); top: 3px; left: 0px; text-align: right;">300</div>
-</div>
-</div>
-<canvas class="flot-overlay" width="602" height="250" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 602px; height: 250px;">
-</canvas>
-<div class="legend">
-<div style="position: absolute; width: 67px; height: 51px; top: 13px; right: 16px; opacity: 0.85; background-color: transparent;"> 
-</div>
-<table style="position:absolute;top:13px;right:16px;;font-size:smaller;color:#545454">
-<tbody>
-<tr>
-<td class="legendColorBox">
-<div style="border:1px solid transparent;padding:1px">
-<div style="width:4px;height:0;border:5px solid rgb(145,145,145);overflow:hidden">
-</div>
-</div>
-</td>
-<td class="legendLabel">Basic</td>
-</tr>
-<tr>
-<td class="legendColorBox">
-<div style="border:1px solid transparent;padding:1px">
-<div style="width:4px;height:0;border:5px solid rgb(83,153,214);overflow:hidden">
-</div>
-</div>
-</td>
-<td class="legendLabel">Gold</td>
-</tr>
-<tr>
-<td class="legendColorBox">
-<div style="border:1px solid transparent;padding:1px">
-<div style="width:4px;height:0;border:5px solid rgb(215,234,43);overflow:hidden">
-</div>
-</div>
-</td>
-<td class="legendLabel">Platinum</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</div>
-<!-- END VERTICAL BAR CHART  -->
-</div>
-</div>
-</div>
-</div>
-<!-- END COLUMN RIGHT -->
 
+<!-- ====== 캘린더 ====== -->
+<input id="view_date1" type="text" value="" size="10"> -
+<input id="view_date2" type="text" value="" size="10"> 
+<!-- ====== 캘린더 끝 ====== -->
+	<!--HOVER ROWS-->
+                                        <div class="widget" id="Best Menu Chart">
+                                                <div class="widget-header clearfix">
+                                                        <h3><i class="icon ion-android-storage"></i>
+                                                        <span>Best Menu</span>
+                                                </h3>
+                                                </div>
+                                                <div class="widget-content">
+                                                        <table class="table table-hover colored-header">
+                                                        <thead>
+                                                        <tr>
+                                                        <th>No.</th>
+                                                        <th>카테고리</th>
+                                                        <th>메뉴 명</th>
+                                                        <th>수량</th>
+                                                        </tr>
+                                                        </thead>
+
+                                                        <tbody>
+                                                        <tr>
+                                                        <td class="count1"></td>
+                                                        <td class="information_value1"></td>
+                                                        <td class="information_value2"></td>
+                                                        <td class="information_value3"></td>
+                                                        </tr>
+                                                        </tbody>
+                                                        </table>
+                                              </div>
+                                      </div>
+	<!--END HOVER ROWS-->
+	<div id="Profitmonthly Page" style="padding:10px"></div>
+	<hr>
+        매출 조회(연 기준)&nbsp;&nbsp;
+<!--        <input id="input_year" type="text" class="input-block-level"> -->
+<!--        <button id="ask_year" class="btn btn-primary">조회</button> -->
+
+	<!--콤보박스-->
+	<select id="year">
+		<option value="">연도</option>
+                <option value="2000">2000</option>
+                <option value="2001">2001</option>
+                <option value="2002">2002</option>
+                <option value="2003">2003</option>
+                <option value="2004">2004</option>
+                <option value="2005">2005</option>
+                <option value="2006">2006</option>
+                <option value="2007">2007</option>
+                <option value="2008">2008</option>
+                <option value="2009">2009</option>
+                <option value="2010">2010</option>
+                <option value="2011">2011</option>
+                <option value="2012">2012</option>
+                <option value="2013">2013</option>
+                <option value="2014">2014</option>
+                <option value="2015">2015</option>
+                <option value="2016">2016</option>
+                <option value="2017">2017</option>
+                <option value="2018">2018</option>
+                <option value="2019">2019</option>
+                <option value="2020">2020</option>
+                <option value="2021">2021</option>
+                <option value="2022">2022</option>
+                <option value="2023">2023</option>
+                <option value="2024">2024</option>
+                <option value="2025">2025</option>
+                <option value="2026">2026</option>
+                <option value="2027">2027</option>
+                <option value="2028">2028</option>
+                <option value="2029">2029</option>
+                <option value="2030">2030</option>
+        </select>
+
+
+
+	<!-- LINE CHART -->
+                                        <div id="Profit Page" style="padding:10px"></div>
+                                        <div class="widget">
+                                                <div class="widget-header clearfix">
+                                                        <h3><i class="icon ion-arrow-graph-up-right"></i>
+                                                        <span>Profit (monthly)</span>
+                                                        </h3>
+                                                </div>
+                                                <div class="widget-content">
+				<div style="height: 10% width: 30%">
+                                <canvas id="canvas0"></canvas>
+				</div>
+                        </div>
+                </div>
+                                        <!-- END LINE CHART -->
+                                        <div id="Profitdaily Page" style="padding:10px"></div>
+	<hr>
+	매출 조회(연-월 기준)&nbsp;&nbsp;
+<!--        <input id="input_year_month" type="text" class="input-block-level"> -->
+<!--        <button id="ask_year_month" class="btn btn-primary">조회</button>-->
+
+	<!--콤보박스-->
+	<select id="year2">
+		<option value="">연도</option>
+                <option value="2000">2000</option>
+                <option value="2001">2001</option>
+                <option value="2002">2002</option>
+                <option value="2003">2003</option>
+                <option value="2004">2004</option>
+                <option value="2005">2005</option>
+                <option value="2006">2006</option>
+                <option value="2007">2007</option>
+                <option value="2008">2008</option>
+                <option value="2009">2009</option>
+                <option value="2010">2010</option>
+                <option value="2011">2011</option>
+                <option value="2012">2012</option>
+                <option value="2013">2013</option>
+                <option value="2014">2014</option>
+                <option value="2015">2015</option>
+                <option value="2016">2016</option>
+                <option value="2017">2017</option>
+                <option value="2018">2018</option>
+                <option value="2019">2019</option>
+                <option value="2020">2020</option>
+                <option value="2021">2021</option>
+                <option value="2022">2022</option>
+                <option value="2023">2023</option>
+                <option value="2024">2024</option>
+                <option value="2025">2025</option>
+                <option value="2026">2026</option>
+                <option value="2027">2027</option>
+                <option value="2028">2028</option>
+                <option value="2029">2029</option>
+                <option value="2030">2030</option>
+        </select>
+
+	<select id="month">
+		<option value="">월</option>
+		<option value="01">01</option>
+		<option value="02">02</option>
+		<option value="03">03</option>
+		<option value="04">04</option>
+		<option value="05">05</option>
+  		<option value="06">06</option>
+  		<option value="07">07</option>
+		<option value="08">08</option>
+  		<option value="09">09</option>
+  		<option value="10">10</option>
+  		<option value="11">11</option>
+  		<option value="12">12</option>
+	</select>
+
+
+	<!-- LINE CHART -->
+                                        <div id="Profit Page" style="padding:10px"></div>
+                                        <div class="widget">
+                                                <div class="widget-header clearfix">
+                                                        <h3><i class="icon ion-android-storage"></i>
+                                                        <span>Profit (daily)</span>
+                                                        </h3>
+                                                </div>
+                                                <div class="widget-content">
+                                <div style="height: 10% width: 30%">
+				
+					<div class="widget-content">
+                                                        <table class="table table-hover colored-header">
+                                                        <thead>
+                                                        <tr>
+                                                        <th>No.</th>
+                                                        <th>날짜</th>
+                                                        <th>매출</th>
+                                                        </tr>
+                                                        </thead>
+
+                                                        <tbody>
+                                                        <tr>
+                                                        <td class="count2"></td>
+                                                        <td class="information_value4"></td>
+                                                        <td class="information_value5"></td>
+                                                        </tr>
+                                                        </tbody>
+                                                        </table>
+                                              </div>
+					
+                                </div>
+                        </div>
+                </div>
+                                        <!-- END LINE CHART -->
+	<hr>
+
+	</div>
+	</div>
+	
+ <!-- /container -->	
+			<!-- PRIMARY CONTENT HEADING -->
+			<div class="widget-content">
+			
+			<div class="row">
+				<div class="col-md-6">
+					<!-- LINE CHART -->
+<!--
+					<div id="Profit Page" style="padding:50px"></div>
+					<div class="widget">
+						<div class="widget-header clearfix">
+							<h3><i class="icon ion-arrow-graph-up-right"></i> 
+							<span>년/월 매출 현황</span>
+							</h3>
+						</div>
+						<div class="widget-content">
+<div style="height: 10% width: 30%">
+				<div>
+				<canvas id="canvas" height="250" width="400"></canvas>
+			</div>
+		</div>
+						</div>
+					</div>
+-->
+					<!-- END LINE CHART -->
+				      </div>
+				</div>
+			</div>
+</div></div>			</div>
+	<!-- END COLUMN RIGHT -->
 </div>
 <!-- END WRAPPER -->
 
+<!-- Script Section -->
 
-<!-- Javascript -->
-<script src="javascripts/web_javascripts/js/jquery/jquery-2.1.0.min.js"></script>
-<script src="javascripts/web_javascripts/js/bootstrap/bootstrap.js"></script>
-<script src="javascripts/web_javascripts/js/plugins/bootstrap-multiselect/bootstrap-multiselect.js"></script>
-<script src="javascripts/web_javascripts/js/plugins/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-<script src="javascripts/web_javascripts/js/queen-common.min.js"></script>
-<script src="javascripts/web_javascripts/js/plugins/stat/flot/jquery.flot.min.js"></script>
-<script src="javascripts/web_javascripts/js/plugins/stat/flot/jquery.flot.resize.min.js"></script>
-<script src="javascripts/web_javascripts/js/plugins/stat/flot/jquery.flot.time.min.js"></script>
-<script src="javascripts/web_javascripts/js/plugins/stat/flot/jquery.flot.pie.min.js"></script>
-<script src="javascripts/web_javascripts/js/plugins/stat/flot/jquery.flot.orderBars.js"></script>
-<script src="javascripts/web_javascripts/js/plugins/stat/flot/jquery.flot.tooltip.min.js"></script>
-<script src="javascripts/web_javascripts/js/plugins/stat/jquery-sparkline/jquery.sparkline.min.js"></script>
-<script src="javascripts/web_javascripts/js/queen-charts.min.js"></script>
 
+<script>
+var count_num = 0; // for문 반복 횟수 확인을 위한 count 전역 변수
+var count_num1 = 0; // 연 기준 매출조회 DB length 값 반환에 쓰이는 전역 변수
+var count_num2 = 0;
+// 1~12월 변수
+jan = 0; feb = 0; mar = 0; apr = 0; may = 0; jun = 0;
+jul = 0 ; aug = 0; sept = 0; oct = 0; nov = 0; dec = 0;
+var total_array = new Array();	// For 연/월 통계
+
+var staff_array1 = new Array();	// For 직원 노동 통계
+var staff_array2 = new Array();	
+
+// 직원명을 담는 변수
+var staff_01 = '';
+var staff_02 = '';
+// ********** default 값 임의로 지정 :: DB 데이터 입력 후 수정해야 함 ************ //
+var staff_03 = '이상현';		
+var staff_04 = '송민아';
+var staff_05 = '김희승';
+
+
+// 노동량을 담는 변수
+work_01 = 0; work_02 = 0; work_03 = 0; work_04 = 0; work_05 = 0;
+
+var date_value = null;
+var dateString = null;
+
+/* 판매 수량 조회 */
+$("#view_date1").click( function() {
+var click_id = $(this).attr('id');
+showCalendarControl(this, click_id);
+});
+
+$("#view_date2").click( function() {
+var click_id = $(this).attr('id');
+showCalendarControl(this, click_id);
+ //view_date2 = dateString;
+
+});
+
+
+
+
+	// 매출 확 인( 연 기준  ) //
+
+
+    $("#year").change( function () {
+    year = $(this).val();
+    console.log("year값 : " + year);
+
+    test('salesYear/' + year);
+
+    function test(value){
+        var url_value = value;
+        $.ajax({
+            type : "GET",
+            url: url_value,
+            async: false,
+            dataType:'json',
+            success: response_json
+            });
+        }
+        function response_json(json) {
+            var isNull = null;
+            var information = null;
+            var information = json.data;
+            var information_value = "";
+            var information_count = information.length;
+            var total = null;
+
+        for(var i=0; i<information_count; i++){
+        //내용물이 null값인지 아닌지 확인
+        if(information[i].month==isNull){
+                        information[i].month="";
+        }
+        if(information[i].total==isNull){
+                information[i].total="";
+        }
+
+	// 서버에 저장되어 있는 가격정보를 total_array 배열 변수에 담는다.
+	// total_array 초기화 부분은 윗부분에 있음.
+        total_array = information[i].total;
+	total_month = information[i].month;
+	total_function(total_array, information_count, total_month);
+        } // for 문 End
+
+        // $(".section-contents").html('').append(information_value);
+	}
+    });
+
+
+// 연월 매출 통계 그래프 //
+function total_function(temp, count_i, total_month){
+		
+		if(total_month == "2015-01"){
+			count_num1 = 0;
+                }
+		if(total_month == "2015-02"){
+			count_num1 = 1;
+                }
+		if(total_month == "2015-03"){
+			count_num1 = 2;
+                }
+		if(total_month == "2015-04"){
+			count_num1 = 3;
+                }
+		if(total_month == "2015-05"){
+			count_num1 = 4;
+                }
+		if(total_month == "2015-06"){
+			count_num1 = 5;
+                }
+		if(total_month == "2015-07"){
+			count_num1 = 6;
+                }
+		if(total_month == "2015-08"){
+			count_num1 = 7;
+                }
+		if(total_month == "2015-09"){
+			count_num1 = 8;
+                }
+		if(total_month == "2015-10"){
+			count_num1 = 9;
+                }
+		if(total_month == "2015-11"){
+			count_num1 = 10;
+                }
+		if(total_month == "2015-12"){
+			count_num1 = 11;
+                }
+
+
+		switch(count_num1){
+		case 0 : jan = temp; count_num++; break;
+		case 1 : feb = temp; count_num++; break;
+		case 2 : mar = temp; count_num++; break;
+		case 3 : apr = temp; count_num++; break;
+		case 4 : may = temp; count_num++; break;
+		case 5 : jun = temp; count_num++; break;
+		case 6 : jul = temp; count_num++; break;
+		case 7 : aug = temp; count_num++; break;
+		case 8 : sept = temp; count_num++; break;
+		case 9 : oct = temp; count_num++; break;
+		case 10 : nov = temp; count_num++; break;
+		case 11 : dec = temp; count_num++; break;
+		}
+		if(count_num == count_i){
+		lineChartData = {
+                         labels : ["1월","2월","3월","4월","5월","6월","7월","8월","9월","10월","11월","12월"],
+                         datasets : [
+                                 {
+                                         label: "My Second dataset",
+                                         fillColor : "rgba(151,187,205,0.2)",
+                                         strokeColor : "rgba(151,187,205,1)",
+                                         pointColor : "rgba(151,187,205,1)",
+                                         pointStrokeColor : "#fff",
+                                         pointHighlightFill : "#fff",
+                                         pointHighlightStroke : "rgba(151,187,205,1)",
+                                         data : [jan, feb, mar, apr, may, jun, jul, aug, sept, oct, nov, dec ]
+                                 }
+                         ]
+
+                 }
+
+                var ctx = document.getElementById("canvas0").getContext("2d");
+                window.myLine = new Chart(ctx).Line(lineChartData, {
+                        responsive: true
+                });
+	
+		}
+}
+
+
+ // 매출 확 인( 연/월 기준  ) //
+    $("#year2").change( function () {
+	data_year=$(this).val();
+    $("#month").change( function () {
+        data_month = $(this).val();
+    
+     test('salesMonth/' + data_year + '/' + data_month);
+    // $('#ask_year_month').click( function(){ test('salesMonth/' + data_year + '/' + data_month) } );
+    function test(value){
+        var url_value = value;
+        $.ajax({
+                        type : "GET",
+                        url: url_value,
+            async: false,
+            dataType:'json',
+            success: response_json
+            });
+        }
+        function response_json(json) {
+	    var count2 = "";
+	    var information_value4 ="";
+	    var information_value5 ="";
+            var isNull = null;
+            var information = null;
+            var information = json.data;
+            var information_value = "";
+            var information_count = information.length;
+            var total = null;
+        for(var i=0; i<information_count; i++){
+        //내용물이 null값인지 아닌지 확인
+        if(information[i].day==isNull){
+                        information[i].day="";
+        }
+        if(information[i].total==isNull){
+                information[i].total="";
+        }
+	count2 += (i+1) + '</br>';
+	information_value4 += information[i].day + '</br>';
+	information_value5 += information[i].total + '</br>';	
+	
+	$(".count2").html('').append(count2);
+	$(".information_value4").html('').append(information_value4);
+	$(".information_value5").html('').append(information_value5);
+
+/*
+        information_value +=   '<b>'+ "년도/월 : " + '</b>' + information[i].day + ", "
+                             + '<b>'+ "매출 : " + '</b>' + information[i].total + "원, "
+                             + '</br>';
+*/
+        }
+/*	
+	console.log(information_value);
+
+        $(".section-content").html('').append(information_value);
+*/
+        }
+	})
+    });
+
+
+
+$(document).ready(function() {
+
+      var calendar = $('#calendar').fullCalendar({
+        selectable: true,
+      //header and other values
+      select: function() {
+          var todaybestmenu = 'Best Menu : 머쉬룸 서로인 스테이크 포 유';
+          var todayprofit = 'Profit : 358000원';
+          $('#createEventModal #todaybestmenu').text(todaybestmenu);
+          $('#createEventModal #todayprofit').text(todayprofit);
+          $('#createEventModal').modal('show');
+       }
+    });
+});
+
+
+
+</script>
 </body>
 </html>
+	
